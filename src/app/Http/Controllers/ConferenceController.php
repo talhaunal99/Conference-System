@@ -16,22 +16,24 @@ class ConferenceController extends Controller
     public function store(Request $request){
         $this->validate($request, [
             'CreationDateTime' => 'required',
-            'Name' => 'required',
-            'ShortName' => 'required',
+            'Name' => 'required|max:100',
+            'ShortName' => 'required|max:19',
             'Year' => 'required',
-            'StartDate' => 'required',
-            'EndDate' => 'required',
-            'Submission_Deadline' => 'required',
+            'StartDate' => 'required|after_or_equal:CreationDateTime',
+            'EndDate' => 'required|after:StartDate',
+            'Submission_Deadline' => 'required|after:StartDate',
             'WebSite' => 'required',
         ]);
 
         $tags = explode(",", $request->Tags);
-        $confID = $request->ShortName . "_" . $request->Year;
-        foreach ($tags as $tag) {
-            $conference_tag = new ConferenceTag();
-            $conference_tag->confID = $confID;
-            $conference_tag->Tag = $tag;
-            $conference_tag->save();
+        if ($request->Tags != '') {
+            $confID = $request->ShortName . "_" . $request->Year;
+            foreach ($tags as $tag) {
+                $conference_tag = new ConferenceTag();
+                $conference_tag->confID = $confID;
+                $conference_tag->Tag = $tag;
+                $conference_tag->save();
+            }
         }
         $conference = new Conference();
 
