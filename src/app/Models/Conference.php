@@ -21,5 +21,6 @@ class Conference extends Model
         'EndDate',
         'Submission_Deadline',
         'WebSite',
+        'Tags'
     ];
 }

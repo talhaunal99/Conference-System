@@ -7,7 +7,7 @@
                 @csrf
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-1" for="Name">Conference Name</label>
-                    <input class="border-4 border-pink-800" type="text" name="Name">
+                    <input class="border-4 border-pink-800 placeholder-gray-500 focus:placeholder-gray-300" type="text" name="Name" placeholder="Konferans İsim">
                 </div>
 
                 @error('Name')
@@ -18,7 +18,7 @@
 
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-1" for="ShortName">Conference Short Name</label>
-                    <input class="border-4 border-pink-800" type="text" name="ShortName">
+                    <input class="border-4 border-pink-800 placeholder-gray-500 focus:placeholder-gray-300" type="text" name="ShortName" placeholder="Konferans Kısa İsim">
                 </div>
 
                 @error('ShortName')
@@ -29,7 +29,7 @@
 
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-1" for="Year">Conference Year</label>
-                    <input class="border-4 border-pink-800" type="number" name="Year">
+                    <input class="border-4 border-pink-800 placeholder-gray-500 focus:placeholder-gray-300" type="number" name="Year" placeholder="2020">
                 </div>
 
                 @error('Year')
@@ -40,7 +40,7 @@
 
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-1" for="WebSite">Conference website</label>
-                    <input class="border-4 border-pink-800" type="text" name="WebSite">
+                    <input class="border-4 border-pink-800 placeholder-gray-500 focus:placeholder-gray-300" type="text" name="WebSite" placeholder="www.konferans1.com">
                 </div>
 
                 @error('WebSite')
@@ -48,6 +48,11 @@
                     {{ $message }}
                 </div>
                 @enderror
+
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-1" for="Tags">Enter comma seperated tags (Max: 5)</label>
+                    <input type="text" name="Tags" class="border-4 border-green-500 placeholder-gray-500 focus:placeholder-gray-300" placeholder="tag1, tag2, tag3, tag4, tag5">
+                </div>
 
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-1" for="CreationDateTime">Choose conference creation time</label>
