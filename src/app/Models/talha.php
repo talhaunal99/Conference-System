@@ -14,5 +14,6 @@ class talha extends Model
 
     protected $fillable = [
         'CreationDateTime',
-        'Name',];
+        'Name',
+        'Talhaa'];
 }
