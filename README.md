@@ -1,3 +1,7 @@
 # Bil372_Odev2_1
 
-test
+Contributors
+-
+- Alper Kaan Yıldız
+- Talha Ünal
+- Yahya Can Tuğrul
