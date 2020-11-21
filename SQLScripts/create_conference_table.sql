@@ -9,7 +9,8 @@ create table Conference
     Submission_Deadline datetime  not null,
     WebSite             char(100) not null,
     ConfID              varchar(20) as (concat(`ShortName`, '_', `Year`)) stored
-        primary key
+        primary key,
+    CreatorUser         int       not null
 )
     collate = utf8mb4_unicode_ci;
 
