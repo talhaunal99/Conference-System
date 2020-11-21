@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS `blog`.`ConferenceTag` (
+  `Tag` VARCHAR(20) NOT NULL,
+  `ConfID` VARCHAR(20) NOT NULL,
+  PRIMARY KEY (`Tag`, `ConfID`))
+ENGINE = InnoDB
