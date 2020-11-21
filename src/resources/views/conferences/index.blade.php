@@ -1,4 +1,4 @@
-@extends('layouts.app', ['header' => 'Create a new conference'])
+@extends('layouts.app', ['header' => 'Create a new conference', 'slot' => ''])
 
 @section('content')
     <div class="flex justify-center">
