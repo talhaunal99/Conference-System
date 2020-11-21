@@ -22,7 +22,7 @@ class CreateConferencesTable extends Migration
             $table->integer('Year');
             $table->dateTime('StartDate');
             $table->dateTime('EndDate');
-            $table->dateTime('Submission Deadline');
+            $table->dateTime('Submission_Deadline');
             $table->char('WebSite', 100);
         });
     }
@@ -34,6 +34,6 @@ class CreateConferencesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('conferences');
+        Schema::dropIfExists('Conference');
     }
 }
