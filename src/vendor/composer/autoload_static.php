@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit3f62f836c7bf925aa44d136b7d626239
+class ComposerStaticInitd50af56521601451a3e12a6b65d0d2e2
 {
     public static $files = array (
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
@@ -568,7 +568,6 @@ class ComposerStaticInit3f62f836c7bf925aa44d136b7d626239
         'App\\Actions\\Fortify\\ResetUserPassword' => __DIR__ . '/../..' . '/app/Actions/Fortify/ResetUserPassword.php',
         'App\\Actions\\Fortify\\UpdateUserPassword' => __DIR__ . '/../..' . '/app/Actions/Fortify/UpdateUserPassword.php',
         'App\\Actions\\Fortify\\UpdateUserProfileInformation' => __DIR__ . '/../..' . '/app/Actions/Fortify/UpdateUserProfileInformation.php',
-        'App\\Actions\\Jetstream\\DeleteUser' => __DIR__ . '/../..' . '/app/Actions/Jetstream/DeleteUser.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
@@ -581,17 +580,13 @@ class ComposerStaticInit3f62f836c7bf925aa44d136b7d626239
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
-        'App\\Models\\Conference' => __DIR__ . '/../..' . '/app/Models/Conference.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\FortifyServiceProvider' => __DIR__ . '/../..' . '/app/Providers/FortifyServiceProvider.php',
-        'App\\Providers\\JetstreamServiceProvider' => __DIR__ . '/../..' . '/app/Providers/JetstreamServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
-        'App\\View\\Components\\AppLayout' => __DIR__ . '/../..' . '/app/View/Components/AppLayout.php',
-        'App\\View\\Components\\GuestLayout' => __DIR__ . '/../..' . '/app/View/Components/GuestLayout.php',
         'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Cors.php',
         'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/CorsService.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
@@ -5484,10 +5479,10 @@ class ComposerStaticInit3f62f836c7bf925aa44d136b7d626239
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit3f62f836c7bf925aa44d136b7d626239::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit3f62f836c7bf925aa44d136b7d626239::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit3f62f836c7bf925aa44d136b7d626239::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit3f62f836c7bf925aa44d136b7d626239::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitd50af56521601451a3e12a6b65d0d2e2::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitd50af56521601451a3e12a6b65d0d2e2::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitd50af56521601451a3e12a6b65d0d2e2::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitd50af56521601451a3e12a6b65d0d2e2::$classMap;
 
         }, null, ClassLoader::class);
     }
