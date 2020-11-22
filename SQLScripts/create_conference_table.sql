@@ -4,9 +4,9 @@ create table Conference
     Name                char(100) not null,
     ShortName           char(19)  not null,
     Year                int       not null,
-    StartDate           datetime  not null,
-    EndDate             datetime  not null,
-    Submission_Deadline datetime  not null,
+    StartDate           date      not null,
+    EndDate             date      not null,
+    Submission_Deadline date      not null,
     WebSite             char(100) not null,
     ConfID              varchar(20) as (concat(`ShortName`, '_', `Year`)) stored
         primary key,
