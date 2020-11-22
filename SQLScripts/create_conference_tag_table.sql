@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `blog`.`ConferenceTag` (
+CREATE TABLE IF NOT EXISTS `grup1`.`ConferenceTag` (
   `Tag` VARCHAR(20) NOT NULL,
   `ConfID` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`Tag`, `ConfID`))

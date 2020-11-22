@@ -20,17 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac1d2605-980a-4417-8661-03cf141894ee" name="Default Changelist" comment="Added SQL script for creating ConferenceTag table.">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Bil372_Odev2_1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Bil372_Odev2_1.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.env" beforeDir="false" afterPath="$PROJECT_DIR$/src/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/jetstream.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/jetstream.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SQLScripts/create_conference_tag_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/SQLScripts/create_conference_tag_table.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/views/navigation-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/navigation-dropdown.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/src/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -161,6 +161,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1kazG4frYU32O2TX80zlz0upTYB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -169,7 +170,7 @@
     <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Documents/grup1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -186,6 +187,9 @@
       <option name="presentableId" value="Default" />
       <updated>1605953390647</updated>
       <workItem from="1605953392549" duration="16680000" />
+      <workItem from="1605977827287" duration="91000" />
+      <workItem from="1605977920198" duration="4669000" />
+      <workItem from="1606031035960" duration="625000" />
     </task>
     <task id="LOCAL-00001" summary="Added talha model class.">
       <created>1605954368173</created>
@@ -217,6 +221,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added talha model class." />
@@ -224,14 +229,18 @@
     <option name="LAST_COMMIT_MESSAGE" value="Added SQL script for creating ConferenceTag table." />
   </component>
   <component name="WindowStateProjectService">
+    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605981919291">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1605981919291" />
     <state x="639" y="354" width="699" height="396" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605964809101">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="639" y="354" width="699" height="396" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1605964809101" />
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1605976206205">
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl" timestamp="1605977915837">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1605976206205" />
+    <state x="776" y="310" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1605977915837" />
     <state x="789" y="478" width="399" height="149" key="NewPhpFileDialog" timestamp="1605953440788">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -240,10 +249,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="588" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/67.27.1853.1053@67.27.1853.1053" timestamp="1605967358982" />
-    <state x="683" y="291" width="676" height="522" key="find.popup" timestamp="1605975273216">
+    <state x="683" y="291" width="767" height="546" key="find.popup" timestamp="1606031069531">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="683" y="291" width="676" height="522" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1605975273216" />
+    <state x="683" y="291" width="767" height="546" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1606031069531" />
     <state x="656" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1605967511326">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
