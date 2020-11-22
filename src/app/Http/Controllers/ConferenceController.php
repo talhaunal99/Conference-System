@@ -10,7 +10,14 @@ use Illuminate\Support\Facades\Auth;
 class ConferenceController extends Controller
 {
     public function index(){
-        return view('conferences.index');
+        $conferences = Conference::get();
+        return view('conferences.index', [
+            'conferences' => $conferences
+        ]);
+    }
+
+    public function create(){
+        return view('conferences.create');
     }
 
     public function store(Request $request){

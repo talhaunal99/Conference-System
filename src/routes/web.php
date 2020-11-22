@@ -23,4 +23,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('/conference', [ConferenceController::class, 'index'])->name('conference');
-Route::post('/conference', [ConferenceController::class, 'store'])->name('conference');
+//Route::post('/conference', [ConferenceController::class, 'store'])->name('conference');
+
+Route::get('/conference/create', [ConferenceController::class, 'create'])->name('conference_create');
+Route::post('/conference/create', [ConferenceController::class, 'store'])->name('conference_create');
+

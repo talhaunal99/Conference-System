@@ -1,117 +1,36 @@
 @extends('layouts.app', ['header' => 'Create a new conference', 'slot' => ''])
 
 @section('content')
-    <div class="flex justify-center">
-        <div class="w-5/12 bg-gradient-to-r from-teal-400 to-blue-500 p-6 rounded-lg">
-            <form action="{{ route('conference') }}" method="post">
-                @csrf
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-1" for="Name">Conference Name</label>
-                    <x-jet-input class="w-3/6 border-4 border-pink-800 placeholder-gray-500 focus:placeholder-gray-300" type="text" name="Name" placeholder="Konferans İsim">
-                    </x-jet-input>
-                </div>
+    <x-jet-nav-link href="{{ route('conference_create') }}" :active="request()->routeIs('dashboard')">
+        {{ __('Create a new conference') }}
+    </x-jet-nav-link>
 
-                @error('Name')
-                <div class="text-pink-900	 mt-2 text-sm">
-                    {{ $message }}
-                </div>
-                @enderror
-
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-1" for="ShortName">Conference Short Name</label>
-                    <x-jet-input class="w-3/6 border-4 border-pink-800 placeholder-gray-500 focus:placeholder-gray-300" type="text" name="ShortName" placeholder="Konferans Kısa İsim">
-                    </x-jet-input>
-                </div>
-
-                @error('ShortName')
-                <div class="text-pink-900	 mt-2 text-sm">
-                    {{ $message }}
-                </div>
-                @enderror
-
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-1" for="Year">Conference Year</label>
-                    <x-jet-input class="w-3/6 border-4 border-pink-800 placeholder-gray-500 focus:placeholder-gray-300" type="number" name="Year" placeholder="2020">
-                    </x-jet-input>
-                </div>
-
-                @error('Year')
-                <div class="text-pink-900	 mt-2 text-sm">
-                    {{ $message }}
-                </div>
-                @enderror
-
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-1" for="WebSite">Conference website</label>
-                    <x-jet-input class="w-3/6 border-4 border-pink-800 placeholder-gray-500 focus:placeholder-gray-300" type="text" name="WebSite" placeholder="www.konferans1.com">
-                    </x-jet-input>
-                </div>
-
-                @error('WebSite')
-                <div class="text-pink-900	 mt-2 text-sm">
-                    {{ $message }}
-                </div>
-                @enderror
-
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-1" for="Tags">Enter comma seperated tags (Max: 5)</label>
-                    <x-jet-input type="text" name="Tags" class="w-3/6 border-4 border-green-500 placeholder-gray-500 focus:placeholder-gray-300" placeholder="tag1, tag2, tag3, tag4, tag5">
-                    </x-jet-input>
-                </div>
-
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-1" for="CreationDateTime">Choose conference creation time</label>
-                    <x-jet-input type="datetime-local" name="CreationDateTime" class="w-3/6 border-4 border-indigo-600">
-                    </x-jet-input>
-                </div>
-
-                @error('CreationDateTime')
-                <div class="text-pink-900	 mt-2 text-sm">
-                    {{ $message }}
-                </div>
-                @enderror
-
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-1" for="StartDate">Choose conference start date</label>
-                    <x-jet-input type="date" name="StartDate" class="w-1/3 border-4 border-indigo-600">
-                    </x-jet-input>
-                </div>
-
-                @error('StartDate')
-                <div class="text-pink-900	 mt-2 text-sm">
-                    {{ $message }}
-                </div>
-                @enderror
-
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-1" for="EndDate">Choose conference end date</label>
-                    <x-jet-input type="date" name="EndDate" class="w-1/3 border-4 border-indigo-600">
-                    </x-jet-input>
-                </div>
-
-                @error('EndDate')
-                <div class="text-pink-900	 mt-2 text-sm">
-                    {{ $message }}
-                </div>
-                @enderror
-
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-1" for="Submission_Deadline">Choose submission deadline</label>
-                    <x-jet-input type="date" name="Submission_Deadline" class="w-1/3 border-4 border-indigo-600">
-                    </x-jet-input>
-                </div>
-
-                @error('Submission_Deadline')
-                <div class="text-pink-900	 mt-2 text-sm">
-                    {{ $message }}
-                </div>
-                @enderror
-
-                <div>
-                    <x-jet-button type="submit" class="bg-red-500 text-white px-4 py-2 rounded font-medium">Create</x-jet-button>
-                </div>
-            </form>
-        </div>
-    </div>
-
+    @if ($conferences->count())
+        <table class="relative w-full border table-auto">
+            <tr>
+                <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Creation Date</th>
+                <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Name</th>
+                <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Short Name</th>
+                <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Year</th>
+                <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Start Date</th>
+                <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">End Date</th>
+                <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Submission Deadline</th>
+                <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Website</th>
+            </tr>
+            @foreach ($conferences as $conference)
+                <tr>
+                    <td class="px-6 py-4 text-center">{{ $conference->CreationDateTime }}</td>
+                    <td class="px-6 py-4 text-center">{{ $conference->Name }}</td>
+                    <td class="px-6 py-4 text-center">{{ $conference->ShortName }}</td>
+                    <td class="px-6 py-4 text-center">{{ $conference->Year }}</td>
+                    <td class="px-6 py-4 text-center">{{ $conference->StartDate }}</td>
+                    <td class="px-6 py-4 text-center">{{ $conference->EndDate }}</td>
+                    <td class="px-6 py-4 text-center">{{ $conference->Submission_Deadline }}</td>
+                    <td class="px-6 py-4 text-center">{{ $conference->WebSite }}</td>
+                </tr>
+            @endforeach
+        </table>
+    @else
+        There are no conferences yet.
+    @endif
 @endsection
