@@ -12,6 +12,10 @@ class Conference extends Model
     protected $table = 'Conference';
     public $timestamps = false;
 
+    protected $primaryKey = 'ConfID';
+    protected $casts = ['id' => 'string'];
+    public $incrementing = false;
+
     protected $fillable = [
         'CreationDateTime',
         'Name',
