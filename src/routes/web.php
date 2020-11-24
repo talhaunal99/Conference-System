@@ -23,8 +23,14 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('/conference', [ConferenceController::class, 'index'])->name('conference');
-//Route::post('/conference', [ConferenceController::class, 'store'])->name('conference');
 
 Route::get('/conference/create', [ConferenceController::class, 'create'])->name('conference_create');
-Route::post('/conference/create', [ConferenceController::class, 'store'])->name('conference_create');
+Route::post('/conference/create', [ConferenceController::class, 'store']);
+
+Route::get('/conference/{conference}', [ConferenceController::class, 'edit'])->name('conference.edit');
+Route::put('/conference/{conference}', [ConferenceController::class, 'update'])->name('conference.update');
+Route::delete('/conference/{conference}', [ConferenceController::class, 'delete'])->name('conference.delete');
+
+
+
 

@@ -16,6 +16,7 @@
                 <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">End Date</th>
                 <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Submission Deadline</th>
                 <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Website</th>
+                <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Actions</th>
             </tr>
             @foreach ($conferences as $conference)
                 <tr>
@@ -27,6 +28,18 @@
                     <td class="px-6 py-4 text-center">{{ $conference->EndDate }}</td>
                     <td class="px-6 py-4 text-center">{{ $conference->Submission_Deadline }}</td>
                     <td class="px-6 py-4 text-center">{{ $conference->WebSite }}</td>
+                    <td>
+                        <form action="{{ route('conference.edit', $conference) }}" method="get">
+                            @csrf
+                            @method('GET')
+                            <button type="submit" class="inline items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-400">Edit</button>
+                        </form>
+                        <form action="{{ route('conference.delete', $conference) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="inline items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-700">Delete</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </table>
