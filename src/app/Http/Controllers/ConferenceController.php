@@ -55,6 +55,6 @@ class ConferenceController extends Controller
         $conference->CreatorUser = Auth::id();
 
         $conference->save();
-
+        return redirect()->route('conference');
     }
 }
