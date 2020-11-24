@@ -5,6 +5,7 @@ create table ConferenceTag
     primary key (ConfID, Tag),
     constraint ConferenceTag_Conference_ConfID_fk
         foreign key (ConfID) references Conference (ConfID)
+            on update cascade on delete cascade
 )
     collate = utf8mb4_unicode_ci;
 
