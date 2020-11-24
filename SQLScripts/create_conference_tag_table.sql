@@ -1,5 +1,10 @@
-CREATE TABLE IF NOT EXISTS `grup1`.`ConferenceTag` (
-  `Tag` VARCHAR(20) NOT NULL,
-  `ConfID` VARCHAR(20) NOT NULL,
-  PRIMARY KEY (`Tag`, `ConfID`))
-ENGINE = InnoDB
+create table ConferenceTag
+(
+    ConfID varchar(20) not null,
+    Tag    varchar(30) not null
+        primary key,
+    constraint ConferenceTag_Conference_ConfID_fk
+        foreign key (ConfID) references Conference (ConfID)
+)
+    collate = utf8mb4_unicode_ci;
+
