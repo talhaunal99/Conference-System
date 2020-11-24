@@ -52,7 +52,7 @@ class JetstreamServiceProvider extends ServiceProvider
             'read',
             'update',
             'delete',
-        ])->description(__('Administrator users can perform any action.'));
+        ])->description(__('Approves user & conference creation requests. Can list users based on search criteria.'));
 
         Jetstream::role('editor', __('Editor'), [
             'read',
