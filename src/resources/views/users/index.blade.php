@@ -3,17 +3,24 @@
 @section('content')
     <table class="relative w-full border table-auto">
         <tr>
-            <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Name</th>
+            <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Username</th>
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Email</th>
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Role</th>
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Approved</th>
+            <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Activation</th>
         </tr>
         @foreach ($users as $user)
+            @if ($user != Auth::user())
             <tr>
-                <td class="px-6 py-4 text-center">{{ $user->name }}</td>
+                <td class="px-6 py-4 text-center">{{ $user->username }}</td>
                 <td class="px-6 py-4 text-center">{{ $user->email }}</td>
                 <td class="px-6 py-4 text-center">{{ $user->role }}</td>
-                <td class="px-6 py-4 text-center">{{ $user->approved }}</td>
+                @if($user->approved == 0)
+                <td class="px-6 py-4 text-center">Not Approved</td>
+                @endif
+                @if($user->approved == 1)
+                    <td class="px-6 py-4 text-center">Approved</td>
+                @endif
                 @if($user->approved == 0)
                 <td>
                     <form action="{{ route('user.edit', $user) }}" method="post">
@@ -33,6 +40,7 @@
                     </td>
                 @endif
             </tr>
+            @endif
         @endforeach
     </table>
 @endsection
