@@ -9,6 +9,20 @@ use App\Actions\Jetstream\DeleteUser;
 use App\Actions\Jetstream\UpdateTeamName;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Jetstream\Jetstream;
+use Illuminate\Http\Request;
+use Laravel\Fortify\Fortify;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
+
+Fortify::authenticateUsing(function (Request $request) {
+    $user = User::where('email', $request->email)->first();
+    if ($user &&
+        Hash::check($request->password, $user->password)
+        && $user->approved == 1) {
+        return $user;
+    }
+});
 
 class JetstreamServiceProvider extends ServiceProvider
 {

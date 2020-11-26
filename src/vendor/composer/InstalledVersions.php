@@ -14,12 +14,12 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '657a998537c0ba7c6385316ddaf56cc2fadd4db1',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -507,12 +507,12 @@ private static $installed = array (
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '657a998537c0ba7c6385316ddaf56cc2fadd4db1',
     ),
     'laravel/sanctum' => 
     array (
@@ -1062,6 +1062,15 @@ private static $installed = array (
       array (
       ),
       'reference' => 'c6c1022351a901512170118436c764e473f6de8c',
+    ),
+    'spatie/laravel-permission' => 
+    array (
+      'pretty_version' => '3.17.0',
+      'version' => '3.17.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '35d40a45e49f5713f477823b571e05ef6a3a0394',
     ),
     'swiftmailer/swiftmailer' => 
     array (
