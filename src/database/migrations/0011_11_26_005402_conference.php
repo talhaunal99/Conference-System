@@ -14,7 +14,7 @@ class Conference extends Migration
     public function up()
     {
         Schema::create('Conference', function (Blueprint $table) {
-            $table->string('ConfID');
+            $table->string('ConfID', 20);
             $table->dateTime('CreationDateTime');
             $table->string('Name', 100);
             $table->string('ShortName', 19);
