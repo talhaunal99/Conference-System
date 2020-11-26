@@ -28,10 +28,17 @@ class CreateNewUser implements CreatesNewUsers
         ])->validate();
 
         return DB::transaction(function () use ($input) {
+            $approved = 0;
+            if ($input['role'] == 'Admin')
+                $approved = 1;
+            else if ($input['role'] == 'User')
+                $approved = 0;
             return tap(User::create([
                 'name' => $input['name'],
                 'email' => $input['email'],
                 'password' => Hash::make($input['password']),
+                'role' => $input['role'],
+                'approved' => $approved
             ]), function (User $user) {
                 $this->createTeam($user);
             });
