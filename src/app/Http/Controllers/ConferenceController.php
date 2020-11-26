@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Conference;
+use App\Models\ConferenceRole;
 use App\Models\ConferenceTag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -61,6 +62,12 @@ class ConferenceController extends Controller
             }
         }
 
+        $conferenceRole = new ConferenceRole();
+        $conferenceRole->ConfID = $ConfID;
+        $conferenceRole->Role = 'Chair';
+        $conferenceRole->AuthenticationID = Auth::id();
+
+        $conferenceRole->save();
 
         return redirect()->route('conference');
     }
