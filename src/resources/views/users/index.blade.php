@@ -6,7 +6,7 @@
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Username</th>
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Email</th>
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Role</th>
-            <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Approved</th>
+            <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Approval</th>
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Activation</th>
         </tr>
         @foreach ($users as $user)

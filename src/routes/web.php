@@ -33,6 +33,7 @@ Route::put('/users/{user}', [UserController::class, 'edit'])->name('user.edit');
 Route::get('/conference/{conference}', [ConferenceController::class, 'edit'])->name('conference.edit');
 Route::put('/conference/{conference}', [ConferenceController::class, 'update'])->name('conference.update');
 Route::delete('/conference/{conference}', [ConferenceController::class, 'delete'])->name('conference.delete');
+Route::put('/conference/change-activation/{conference}', [ConferenceController::class, 'changeActivation'])->name('conference.changeactivation');
 
 
 

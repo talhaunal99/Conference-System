@@ -24,6 +24,7 @@ class Conference extends Migration
             $table->date('Submission_Deadline');
             $table->string('WebSite', 100);
             $table->unsignedBigInteger('CreatorUser');
+            $table->boolean('approved');
             $table->primary('ConfID');
             $table->foreign('CreatorUser')->references('id')->on('users');
 

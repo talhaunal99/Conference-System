@@ -46,6 +46,7 @@ class ConferenceController extends Controller
         $conference->WebSite = $request->WebSite;
         $conference->ConfID = $ConfID;
         $conference->CreatorUser = Auth::id();
+        $conference->approved = 0;
 
         $conference->save();
 
@@ -118,5 +119,11 @@ class ConferenceController extends Controller
     public function delete(Conference $conference){
         $conference->delete();
         return redirect()->route('conference');
+    }
+
+    public function changeActivation(Conference $conference){
+        $conference->approved = !$conference->approved;
+        $conference->save();
+        return $this->index();
     }
 }

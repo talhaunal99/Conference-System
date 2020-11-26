@@ -19,7 +19,11 @@
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('conference') }}" :active="request()->routeIs('conference')">
+                        @if (Auth::user()->role == 'Admin')
+                        {{ __('Conferences & Approval') }}
+                        @else
                         {{ __('Conferences') }}
+                        @endif
                     </x-jet-nav-link>
                 </div>
 
