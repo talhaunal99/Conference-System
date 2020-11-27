@@ -85,7 +85,6 @@ class Fortify
     public static function viewPrefix(string $prefix)
     {
         static::loginView($prefix.'login');
-        static::twoFactorChallengeView($prefix.'two-factor-challenge');
         static::registerView($prefix.'register');
         static::requestPasswordResetLinkView($prefix.'forgot-password');
         static::resetPasswordView($prefix.'reset-password');

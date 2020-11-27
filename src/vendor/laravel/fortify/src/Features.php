@@ -38,8 +38,7 @@ class Features
     public static function hasProfileFeatures()
     {
         return static::enabled(static::updateProfileInformation()) ||
-               static::enabled(static::updatePasswords()) ||
-               static::enabled(static::twoFactorAuthentication());
+               static::enabled(static::updatePasswords());
     }
 
     /**
@@ -59,18 +58,7 @@ class Features
      */
     public static function hasSecurityFeatures()
     {
-        return static::enabled(static::updatePasswords()) ||
-               static::canManageTwoFactorAuthentication();
-    }
-
-    /**
-     * Determine if the application can manage two factor authentication.
-     *
-     * @return bool
-     */
-    public static function canManageTwoFactorAuthentication()
-    {
-        return static::enabled(static::twoFactorAuthentication());
+        return static::enabled(static::updatePasswords());
     }
 
     /**
@@ -121,20 +109,5 @@ class Features
     public static function updatePasswords()
     {
         return 'update-passwords';
-    }
-
-    /**
-     * Enable the two factor authentication feature.
-     *
-     * @param  array  $options
-     * @return string
-     */
-    public static function twoFactorAuthentication(array $options = [])
-    {
-        if (! empty($options)) {
-            config(['fortify-options.two-factor-authentication' => $options]);
-        }
-
-        return 'two-factor-authentication';
     }
 }
