@@ -19,7 +19,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '657a998537c0ba7c6385316ddaf56cc2fadd4db1',
+    'reference' => '0650ad53a4397aa0b533a2d2244452d021c22f84',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -512,7 +512,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '657a998537c0ba7c6385316ddaf56cc2fadd4db1',
+      'reference' => '0650ad53a4397aa0b533a2d2244452d021c22f84',
     ),
     'laravel/sanctum' => 
     array (
@@ -1382,6 +1382,15 @@ private static $installed = array (
       array (
       ),
       'reference' => 'bafc69caeb4d49c39fd0779086c03a3738cbb389',
+    ),
+    'yajra/laravel-datatables-oracle' => 
+    array (
+      'pretty_version' => 'v9.14.1',
+      'version' => '9.14.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '7e45885588225b31a9e7bdf4b04733c44432531c',
     ),
   ),
 );
