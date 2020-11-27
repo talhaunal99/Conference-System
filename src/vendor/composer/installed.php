@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '2c2a5e7e995bb34b7ed1fbf16b68b80911c1ee5b',
+    'reference' => 'c93b1aea868ffbc624ef0fabcaf70235984aa394',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -37,6 +37,15 @@
       array (
       ),
       'reference' => '283a40c901101e66de7061bd359252c013dcc43c',
+    ),
+    'composer/package-versions-deprecated' => 
+    array (
+      'pretty_version' => '1.11.99.1',
+      'version' => '1.11.99.1',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '7413f0b55a051e89485c5cb9f765fe24bb02a7b6',
     ),
     'cordoval/hamcrest-php' => 
     array (
@@ -449,6 +458,15 @@
       ),
       'reference' => '346cfd72d11bb41f15e82654e532dc55360612ac',
     ),
+    'jean85/pretty-package-versions' => 
+    array (
+      'pretty_version' => '1.5.1',
+      'version' => '1.5.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'a917488320c20057da87f67d0d40543dd9427f7a',
+    ),
     'jenssegers/agent' => 
     array (
       'pretty_version' => 'v2.6.4',
@@ -457,6 +475,15 @@
       array (
       ),
       'reference' => 'daa11c43729510b3700bc34d414664966b03bffe',
+    ),
+    'jenssegers/mongodb' => 
+    array (
+      'pretty_version' => 'v3.8.1',
+      'version' => '3.8.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'a9c74106c27abeb7d57400bd79babe8688123232',
     ),
     'kodova/hamcrest-php' => 
     array (
@@ -499,7 +526,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '2c2a5e7e995bb34b7ed1fbf16b68b80911c1ee5b',
+      'reference' => 'c93b1aea868ffbc624ef0fabcaf70235984aa394',
     ),
     'laravel/sanctum' => 
     array (
@@ -573,6 +600,15 @@
       ),
       'reference' => '20cab678faed06fac225193be281ea0fddb43b93',
     ),
+    'mongodb/mongodb' => 
+    array (
+      'pretty_version' => '1.8.0',
+      'version' => '1.8.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '953dbc19443aa9314c44b7217a16873347e6840d',
+    ),
     'monolog/monolog' => 
     array (
       'pretty_version' => '2.1.1',
@@ -628,6 +664,13 @@
       array (
       ),
       'reference' => '7c2b95589bf81e274e61e47f7672a1b2c3e06eaa',
+    ),
+    'ocramius/package-versions' => 
+    array (
+      'replaced' => 
+      array (
+        0 => '1.11.99',
+      ),
     ),
     'opis/closure' => 
     array (

@@ -5,7 +5,7 @@
         {{ __('Create a new conference') }}
     </x-jet-nav-link>
 
-    <table id="alper" class="relative w-full border table-auto">
+    <table id="conference-table" class="relative w-full border table-auto">
         <thead>
         <tr>
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Creation Date</th>
@@ -83,7 +83,7 @@
 
     <script>
         $(document).ready( function () {
-            $('#alper').DataTable();
+            $('#conference-table').DataTable();
         } );
     </script
 @endsection

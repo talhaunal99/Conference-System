@@ -68,6 +68,18 @@ class ConferenceController extends Controller
 
         $ConfID = $request->ShortName . "_" . $request->Year;
 
+        $conferences = Conference::select('ConfID')
+            ->where('ConfID', 'like', $ConfID.'%')
+            ->orderBy('ConfID', 'desc')
+            ->get();
+
+        $latestConfID = $conferences[0]->ConfID;
+        $pos = strrpos($latestConfID, "_");
+        if ($pos){
+            $version = ((int)substr($latestConfID, $pos + 1)) + 1;
+            $ConfID .= '_' . $version;
+        }
+
         $conference = new Conference();
 
         $conference->CreationDateTime = $request->CreationDateTime;
@@ -86,10 +98,9 @@ class ConferenceController extends Controller
 
         $tags = explode(",", $request->Tags);
         if ($request->Tags != '') {
-            $confID = $request->ShortName . "_" . $request->Year;
             foreach ($tags as $tag) {
                 $conference_tag = new ConferenceTag();
-                $conference_tag->confID = $confID;
+                $conference_tag->confID = $ConfID;
                 $conference_tag->Tag = trim($tag);
                 $conference_tag->save();
             }
