@@ -45,14 +45,14 @@
                     <form action="{{ route('conference.edit', $conferencesAndTag[0]) }}" method="get">
                         @csrf
                         @method('GET')
-                        @if ($conferencesAndTag[0]->CreatorUser != \Illuminate\Support\Facades\Auth::user()->id)
+                        @if ($conferencesAndTag[0]->CreatorUser == \Illuminate\Support\Facades\Auth::user()->id)
                         <button type="submit" class="inline items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-400">Edit</button>
                         @endif
                     </form>
                     <form action="{{ route('conference.delete', $conferencesAndTag[0]) }}" method="post">
                         @csrf
                         @method('DELETE')
-                        @if ($conferencesAndTag[0]->CreatorUser != \Illuminate\Support\Facades\Auth::user()->id)
+                        @if ($conferencesAndTag[0]->CreatorUser == \Illuminate\Support\Facades\Auth::user()->id)
                         <button type="submit" class="inline items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-700">Delete</button>
                         @endif
                     </form>
