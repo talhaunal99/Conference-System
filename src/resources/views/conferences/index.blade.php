@@ -5,7 +5,8 @@
         {{ __('Create a new conference') }}
     </x-jet-nav-link>
 
-    <table class="relative w-full border table-auto">
+    <table id="alper" class="relative w-full border table-auto">
+        <thead>
         <tr>
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Creation Date</th>
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Name</th>
@@ -22,6 +23,8 @@
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Activation</th>
             @endif
         </tr>
+        </thead>
+        <tbody>
         @foreach ($conferencesAndTags as $conferencesAndTag)
             <tr>
                 <td class="px-6 py-4 text-center">{{ $conferencesAndTag[0]->CreationDateTime }}</td>
@@ -75,5 +78,12 @@
                 @endif
             </tr>
         @endforeach
+        </tbody>
     </table>
+
+    <script>
+        $(document).ready( function () {
+            $('#alper').DataTable();
+        } );
+    </script
 @endsection
