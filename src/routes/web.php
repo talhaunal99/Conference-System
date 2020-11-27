@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AssignController;
 use App\Http\Controllers\ConferenceController;
+use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,9 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('/upload-file', [FileUploadController::class, 'createForm']);
+Route::post('/upload-file', [FileUploadController::class, 'fileUpload'])->name('fileUpload');
 
 Route::get('/conference', [ConferenceController::class, 'index'])->name('conference');
 Route::get('/users', [UserController::class, 'index'])->name('users');
