@@ -17,6 +17,24 @@ class ConferenceController extends Controller
         ]);
     }
 
+    public function chair(){
+        $id = Auth::user()->id;
+        $conference_conf_ids = ConferenceRole::select('ConfID')
+            ->where('Role', 'Chair')
+            ->where('AuthenticationID', $id)
+            ->get()
+            ->toArray();
+        $conferences = collect();
+        foreach ($conference_conf_ids as $conference_conf_id){
+            $conference = Conference::where('ConfID', $conference_conf_id)->get()->first();
+            $conferences->push($conference);
+        }
+//        dd($conferences);
+        return view('conferences.index', [
+            'conferences' => $conferences
+        ]);
+    }
+
     public function create(){
         return view('conferences.create');
     }

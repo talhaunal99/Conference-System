@@ -34,6 +34,12 @@
                     </x-jet-nav-link>
                 </div>
                 @endif
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-jet-nav-link href="{{ route('conference.chair') }}" :active="request()->routeIs('dashboard')">
+                        {{ __('Conferences You Chair') }}
+                    </x-jet-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
