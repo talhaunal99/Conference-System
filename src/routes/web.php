@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AssignController;
 use App\Http\Controllers\ConferenceController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::get('/conference', [ConferenceController::class, 'index'])->name('conference');
 Route::get('/users', [UserController::class, 'index'])->name('users');
+Route::post('/assign', [AssignController::class, 'update'])->name('assign');
 Route::get('/conference-chair', [ConferenceController::class, 'chair'])->name('conference.chair');
 
 Route::get('/conference/create', [ConferenceController::class, 'create'])->name('conference_create');

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Conference;
 use App\Models\ConferenceRole;
 use App\Models\ConferenceTag;
+use App\Models\Role;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,9 +31,12 @@ class ConferenceController extends Controller
             $conference = Conference::where('ConfID', $conference_conf_id)->get()->first();
             $conferences->push($conference);
         }
-//        dd($conferences);
-        return view('conferences.index', [
-            'conferences' => $conferences
+        $users = User::get();
+        $roles = Role::where('Role', '!=', 'Author')->get();
+        return view('conferences.conference-chair', [
+            'conferences' => $conferences,
+            'users' => $users,
+            'roles' => $roles
         ]);
     }
 

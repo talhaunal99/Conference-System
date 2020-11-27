@@ -32,10 +32,10 @@
             <div class="mt-4">
                 <x-jet-label for="role" value="{{ __('Select user role') }}" />
                 <select class="block mt-1 w-full" name="role">
-                <option>Select Role</option>
+                    <option>Select Role</option>
                     <option>Admin</option>
                     <option>User</option>
-                    </select>
+                </select>
             </div>
 
             <div class="flex items-center justify-end mt-4">
