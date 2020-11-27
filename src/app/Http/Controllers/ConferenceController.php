@@ -13,9 +13,19 @@ use Illuminate\Support\Facades\Auth;
 class ConferenceController extends Controller
 {
     public function index(){
+        $conferencesAndTags = collect();
         $conferences = Conference::get();
+        foreach ($conferences as $conference) {
+            $tags = ConferenceTag::select('Tag')->where('ConfID', $conference->ConfID)->get()->toArray();
+            $tagsString = "";
+            foreach ($tags as $tag) {
+                $tagsString .= $tag['Tag'] . ", ";
+            }
+            $tagsString = rtrim($tagsString, ", ");
+            $conferencesAndTags->push([$conference, $tagsString]);
+        }
         return view('conferences.index', [
-            'conferences' => $conferences
+            'conferencesAndTags' => $conferencesAndTags
         ]);
     }
 

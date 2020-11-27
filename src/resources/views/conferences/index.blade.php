@@ -10,6 +10,7 @@
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Creation Date</th>
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Name</th>
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Short Name</th>
+            <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Tags</th>
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Year</th>
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Start Date</th>
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">End Date</th>
@@ -21,46 +22,51 @@
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Activation</th>
             @endif
         </tr>
-        @foreach ($conferences as $conference)
+        @foreach ($conferencesAndTags as $conferencesAndTag)
             <tr>
-                <td class="px-6 py-4 text-center">{{ $conference->CreationDateTime }}</td>
-                <td class="px-6 py-4 text-center">{{ $conference->Name }}</td>
-                <td class="px-6 py-4 text-center">{{ $conference->ShortName }}</td>
-                <td class="px-6 py-4 text-center">{{ $conference->Year }}</td>
-                <td class="px-6 py-4 text-center">{{ $conference->StartDate }}</td>
-                <td class="px-6 py-4 text-center">{{ $conference->EndDate }}</td>
-                <td class="px-6 py-4 text-center">{{ $conference->Submission_Deadline }}</td>
-                <td class="px-6 py-4 text-center">{{ $conference->WebSite }}</td>
+                <td class="px-6 py-4 text-center">{{ $conferencesAndTag[0]->CreationDateTime }}</td>
+                <td class="px-6 py-4 text-center">{{ $conferencesAndTag[0]->Name }}</td>
+                <td class="px-6 py-4 text-center">{{ $conferencesAndTag[0]->ShortName }}</td>
+                <td class="px-6 py-4 text-center">{{ $conferencesAndTag[1] }}</td>
+                <td class="px-6 py-4 text-center">{{ $conferencesAndTag[0]->Year }}</td>
+                <td class="px-6 py-4 text-center">{{ $conferencesAndTag[0]->StartDate }}</td>
+                <td class="px-6 py-4 text-center">{{ $conferencesAndTag[0]->EndDate }}</td>
+                <td class="px-6 py-4 text-center">{{ $conferencesAndTag[0]->Submission_Deadline }}</td>
+                <td class="px-6 py-4 text-center">{{ $conferencesAndTag[0]->WebSite }}</td>
                 <td class="px-6 py-4 text-center">
-                    @if ($conference->approved == 0)
+                    @if ($conferencesAndTag[0]->approved == 0)
                         Not Approved
                     @endif
-                    @if ($conference->approved == 1)
+                    @if ($conferencesAndTag[0]->approved == 1)
                         Approved
                     @endif
                 </td>
                 <td>
-                    <form action="{{ route('conference.edit', $conference) }}" method="get">
+                    <form action="{{ route('conference.edit', $conferencesAndTag[0]) }}" method="get">
                         @csrf
                         @method('GET')
+                        @if ($conferencesAndTag[0]->CreatorUser != \Illuminate\Support\Facades\Auth::user()->id)
                         <button type="submit" class="inline items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-400">Edit</button>
+                        @endif
                     </form>
-                    <form action="{{ route('conference.delete', $conference) }}" method="post">
+                    <form action="{{ route('conference.delete', $conferencesAndTag[0]) }}" method="post">
                         @csrf
                         @method('DELETE')
+                        @if ($conferencesAndTag[0]->CreatorUser != \Illuminate\Support\Facades\Auth::user()->id)
                         <button type="submit" class="inline items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-700">Delete</button>
+                        @endif
                     </form>
                 </td>
                 @if (Auth::user()->role == 'Admin')
                 <td>
-                    <form action="{{ route('conference.changeactivation', $conference) }}" method="post">
+                    <form action="{{ route('conference.changeactivation', $conferencesAndTag[0]) }}" method="post">
                         @csrf
                         @method('PUT')
                         <button type="submit" class="inline items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-700">
-                            @if ($conference->approved == 0)
+                            @if ($conferencesAndTag[0]->approved == 0)
                                 Activate
                             @endif
-                            @if ($conference->approved == 1)
+                            @if ($conferencesAndTag[0]->approved == 1)
                                 Deactivate
                             @endif
                         </button>
