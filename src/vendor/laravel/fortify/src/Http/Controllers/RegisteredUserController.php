@@ -54,9 +54,9 @@ class RegisteredUserController extends Controller
     {
         event(new Registered($user = $creator->create($request->all())));
 
-        if ($user->approved == 1) {
-            $this->guard->login($user);
-        }
+//        if ($user->approved == 1) {
+//            $this->guard->login($user);
+//        }
         return app(RegisterResponse::class);
     }
 }

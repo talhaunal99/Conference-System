@@ -73,11 +73,13 @@ class ConferenceController extends Controller
             ->orderBy('ConfID', 'desc')
             ->get();
 
-        $latestConfID = $conferences[0]->ConfID;
-        $pos = strrpos($latestConfID, "_");
-        if ($pos){
-            $version = ((int)substr($latestConfID, $pos + 1)) + 1;
-            $ConfID .= '_' . $version;
+        if (count($conferences) != 0) {
+            $latestConfID = $conferences[0]->ConfID;
+            $pos = strrpos($latestConfID, "_");
+            if ($pos) {
+                $version = ((int)substr($latestConfID, $pos + 1)) + 1;
+                $ConfID .= '_' . $version;
+            }
         }
 
         $conference = new Conference();
