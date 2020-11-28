@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\AssignController;
 use App\Http\Controllers\ConferenceController;
 use App\Http\Controllers\FileUploadController;
@@ -28,10 +29,13 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::get('/upload-file', [FileUploadController::class, 'createForm']);
 Route::post('/upload-file', [FileUploadController::class, 'fileUpload'])->name('fileUpload');
+Route::get('/ajax-request', [AjaxController::class, 'getCountryCity']);
 
 Route::get('/conference', [ConferenceController::class, 'index'])->name('conference');
 Route::get('/users', [UserController::class, 'index'])->name('users');
 Route::get('/users-info', [UsersInfoController::class, 'index'])->name('users.info');
+Route::get('/users-info-edit', [UsersInfoController::class, 'edit'])->name('users.edit');
+Route::put('/users-info-edit', [UsersInfoController::class, 'edit2']);
 Route::post('/users-info', [UsersInfoController::class, 'store'])->name('users.create');
 Route::post('/assign', [AssignController::class, 'update'])->name('assign');
 Route::get('/conference-chair', [ConferenceController::class, 'chair'])->name('conference.chair');

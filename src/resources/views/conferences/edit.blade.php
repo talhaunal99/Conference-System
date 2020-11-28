@@ -6,7 +6,6 @@
         @method('PUT')
         <div class="flex justify-center">
             <div class="w-5/12 bg-gradient-to-r from-teal-400 to-blue-500 p-6 rounded-lg">
-                <form action="{{ route('conference_create') }}" method="post">
                     @csrf
                     <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-1" for="Name">Conference Name</label>
@@ -113,7 +112,6 @@
                     <div>
                         <x-jet-button type="submit" class="bg-red-500 text-white px-4 py-2 rounded font-medium">Create</x-jet-button>
                     </div>
-                </form>
             </div>
         </div>
     </form>

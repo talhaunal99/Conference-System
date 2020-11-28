@@ -10,8 +10,9 @@ class UsersInfo extends Model
     use HasFactory;
 
     protected $table = 'UsersInfo';
+    public $timestamps = false;
 
-    protected $primaryKey = 'ConfID';
+    protected $primaryKey = 'AuthenticationID';
 
     protected $fillable = [
         'Salutation',
@@ -23,5 +24,8 @@ class UsersInfo extends Model
         'Fax',
         'URL',
         'Address',
+        'CountryCode',
+        'CityId',
+        'AuthenticationID',
     ];
 }
