@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Country;
 use App\Models\CountryCity;
 use App\Models\UsersInfo;
+use App\Models\UsersLog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,6 +28,25 @@ class UsersInfoController extends Controller
             ->where('CityName', $request->city)
             ->get()[0]->CityId;
 
+        $usersLatestLogCount = UsersLog::where('AuthenticationID', Auth::user()->id)->get()->count();
+
+        $usersLog = new UsersLog();
+        $usersLog->id = $usersLatestLogCount + 1;
+        $usersLog->Salutation = $request->Salutation;
+        $usersLog->Name = $request->Name;
+        $usersLog->LastName = $request->Surname;
+        $usersLog->Affiliation = $request->Affiliation;
+        $usersLog->SecondaryEmail = $request->second_e_mail;
+        $usersLog->Phone = $request->Telefon;
+        $usersLog->Fax = $request->Fax;
+        $usersLog->URL = $request->URL;
+        $usersLog->Address = $request->Address;
+        $usersLog->CountryCode = $countryCode;
+        $usersLog->CityId = $cityId;
+        $usersLog->AuthenticationID = Auth::user()->id;
+
+        $usersLog->save();
+
         $usersInfo = new UsersInfo();
         $usersInfo->Salutation = $request->Salutation;
         $usersInfo->Name = $request->Name;
@@ -42,6 +62,7 @@ class UsersInfoController extends Controller
         $usersInfo->AuthenticationID = Auth::user()->id;
 
         $usersInfo->save();
+
         return redirect('dashboard');
     }
 
@@ -65,6 +86,26 @@ class UsersInfoController extends Controller
         $usersInfo = UsersInfo::where('AuthenticationID', Auth::user()->id)->get()[0];
         $countryCode = Country::select('CountryCode')->where('CountryName', $request['country'])->get()[0]->CountryCode;
         $cityId = CountryCity::select('CityId')->where('CityName', $request['city'])->get()[0]->CityId;
+
+        $usersLatestLogCount = UsersLog::where('AuthenticationID', Auth::user()->id)->get()->count();
+        $oldUsersInfo = UsersInfo::where('AuthenticationID', Auth::user()->id)->get()[0];
+
+        $usersLog = new UsersLog();
+        $usersLog->id = $usersLatestLogCount + 1;
+        $usersLog->Salutation = $oldUsersInfo['Salutation'];
+        $usersLog->Name = $oldUsersInfo['Name'];
+        $usersLog->LastName = $oldUsersInfo['LastName'];
+        $usersLog->Affiliation = $oldUsersInfo['Affiliation'];
+        $usersLog->SecondaryEmail = $oldUsersInfo['SecondaryEmail'];
+        $usersLog->Phone = $oldUsersInfo['Phone'];
+        $usersLog->Fax = $oldUsersInfo['Fax'];
+        $usersLog->URL = $oldUsersInfo['URL'];
+        $usersLog->Address = $oldUsersInfo['Address'];
+        $usersLog->CountryCode = $countryCode;
+        $usersLog->CityId = $cityId;
+        $usersLog->AuthenticationID = Auth::user()->id;
+
+        $usersLog->save();
 
         $usersInfo->Salutation = $request['Salutation'];
         $usersInfo->Name = $request['Name'];
