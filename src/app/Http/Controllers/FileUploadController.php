@@ -12,7 +12,7 @@ class FileUploadController extends Controller{
 
     public function fileUpload(Request $req){
         $req->validate([
-            'file' => 'required|pdf|max:2048'
+            'file' => 'required|mimes:pdf|max:2048'
         ]);
 
         $fileModel = new File;
