@@ -6,6 +6,7 @@ use App\Http\Controllers\ConferenceController;
 use App\Http\Controllers\FileUploadController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UsersInfoController;
+use App\Http\Controllers\MongoSubsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,6 +50,8 @@ Route::put('/conference/{conference}', [ConferenceController::class, 'update'])-
 Route::delete('/conference/{conference}', [ConferenceController::class, 'delete'])->name('conference.delete');
 Route::put('/conference/change-activation/{conference}', [ConferenceController::class, 'changeActivation'])->name('conference.changeactivation');
 
+Route::get('/submission/create', [MongoSubsController::class, 'create'])->name('submission_create');
+Route::post('/submission/create', [MongoSubsController::class, 'store']);
 
 
 

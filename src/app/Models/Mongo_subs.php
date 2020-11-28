@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
@@ -16,7 +16,7 @@ class Mongo_subs extends Eloquent
         'title',
         'abstract',
         'keywords',
-        'authors' => ['authenticationID', 'name', 'email', 'affil', 'country'],
+        'authors' => 'authenticationID', 'name', 'email', 'affil', 'country',
         'submitted_by',
         'corresponding_author',
         'pdf_path',
