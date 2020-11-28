@@ -1,9 +1,14 @@
 @extends('layouts.app', ['header' => 'Create a new conference', 'slot' => ''])
 
 @section('content')
-    <x-jet-nav-link href="{{ route('conference_create') }}" :active="request()->routeIs('dashboard')">
-        {{ __('Create a new conference') }}
-    </x-jet-nav-link>
+    <div class="flex justify-center">
+        <form action="{{ route('conference_create') }}">
+            <div>
+                <x-jet-button type="submit" class="bg-red-500 text-white px-5 py-5 m-5 rounded font-medium">Create New Conference</x-jet-button>
+            </div>
+        </form>
+    </div>
+
 
     <table id="conference-table" class="relative w-full border table-auto">
         <thead>
@@ -34,7 +39,13 @@
                 <td class="px-6 py-4 text-center">{{ $conferencesAndTag[0]->Year }}</td>
                 <td class="px-6 py-4 text-center">{{ $conferencesAndTag[0]->StartDate }}</td>
                 <td class="px-6 py-4 text-center">{{ $conferencesAndTag[0]->EndDate }}</td>
-                <td class="px-6 py-4 text-center">{{ $conferencesAndTag[0]->Submission_Deadline }}</td>
+                <td class="px-6 py-4 text-center">
+                    @if (date('Y-m-d H:i:s') > $conferencesAndTag[0]->Submission_Deadline)
+                        Expired.
+                    @else
+                        {{ $conferencesAndTag[0]->Submission_Deadline }}
+                    @endif
+                </td>
                 <td class="px-6 py-4 text-center">{{ $conferencesAndTag[0]->WebSite }}</td>
                 <td class="px-6 py-4 text-center">
                     @if ($conferencesAndTag[0]->approved == 0)
