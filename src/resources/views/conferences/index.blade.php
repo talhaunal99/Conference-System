@@ -31,6 +31,7 @@
         </thead>
         <tbody>
         @foreach ($conferencesAndTags as $conferencesAndTag)
+            @if (date('Y-m-d H:i:s') <= $conferencesAndTag[0]->Submission_Deadline)
             <tr>
                 <td class="px-6 py-4 text-center">{{ $conferencesAndTag[0]->CreationDateTime }}</td>
                 <td class="px-6 py-4 text-center">{{ $conferencesAndTag[0]->Name }}</td>
@@ -39,13 +40,7 @@
                 <td class="px-6 py-4 text-center">{{ $conferencesAndTag[0]->Year }}</td>
                 <td class="px-6 py-4 text-center">{{ $conferencesAndTag[0]->StartDate }}</td>
                 <td class="px-6 py-4 text-center">{{ $conferencesAndTag[0]->EndDate }}</td>
-                <td class="px-6 py-4 text-center">
-                    @if (date('Y-m-d H:i:s') > $conferencesAndTag[0]->Submission_Deadline)
-                        Expired.
-                    @else
-                        {{ $conferencesAndTag[0]->Submission_Deadline }}
-                    @endif
-                </td>
+                <td class="px-6 py-4 text-center">{{ $conferencesAndTag[0]->Submission_Deadline }}</td>
                 <td class="px-6 py-4 text-center">{{ $conferencesAndTag[0]->WebSite }}</td>
                 <td class="px-6 py-4 text-center">
                     @if ($conferencesAndTag[0]->approved == 0)
@@ -88,6 +83,7 @@
                 </td>
                 @endif
             </tr>
+            @endif
         @endforeach
         </tbody>
     </table>
