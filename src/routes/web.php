@@ -32,6 +32,7 @@ Route::post('/upload-file', [FileUploadController::class, 'fileUpload'])->name('
 Route::get('/conference', [ConferenceController::class, 'index'])->name('conference');
 Route::get('/users', [UserController::class, 'index'])->name('users');
 Route::get('/users-info', [UsersInfoController::class, 'index'])->name('users.info');
+Route::post('/users-info', [UsersInfoController::class, 'store'])->name('users.create');
 Route::post('/assign', [AssignController::class, 'update'])->name('assign');
 Route::get('/conference-chair', [ConferenceController::class, 'chair'])->name('conference.chair');
 

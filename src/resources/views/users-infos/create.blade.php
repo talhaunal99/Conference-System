@@ -3,7 +3,7 @@
 @section('content')
     <div class="flex justify-center">
         <div class="w-5/12 bg-gradient-to-r from-teal-400 to-blue-500 p-6 rounded-lg">
-            <form action="{{ route('conference_create') }}" method="post">
+            <form action="{{ route('users.create') }}" method="post">
                 @csrf
 
                 <div class="mb-4">

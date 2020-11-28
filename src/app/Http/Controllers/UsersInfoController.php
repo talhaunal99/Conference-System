@@ -10,4 +10,8 @@ class UsersInfoController extends Controller
     {
         return view('users-infos.create');
     }
+
+    public function store(Request $request){
+        dd($request->all());
+    }
 }
