@@ -16,6 +16,7 @@
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Submission Deadline</th>
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Website</th>
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Approval</th>
+            <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Submissions</th>
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Actions</th>
             @if (Auth::user()->role == 'Admin')
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Activation</th>
@@ -39,6 +40,13 @@
                     @if ($conference->approved == 1)
                         Approved
                     @endif
+                </td>
+                <td>
+                    <form action="{{ route('submissions.chair', $conference) }}" method="get">
+                        @csrf
+                        @method('GET')
+                        <button type="submit" class="inline items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-400">View</button>
+                    </form>
                 </td>
                 <td>
                     <form action="{{ route('conference.edit', $conference) }}" method="get">

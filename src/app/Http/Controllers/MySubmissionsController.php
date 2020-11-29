@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Conference;
 use App\Models\Country;
 use App\Models\Mongo_subs;
 use App\Models\Submission;
@@ -26,6 +27,10 @@ class MySubmissionsController extends Controller
     }
 
     public function delete(Mongo_subs $submission){
+        $revisions = Mongo_subs::where('prev_submission_id', $submission->submission_id)->get();
+        foreach ($revisions as $revision){
+            $revision->delete();
+        }
         $submission->delete();
         return redirect()->route('dashboard');
     }
@@ -121,5 +126,12 @@ class MySubmissionsController extends Controller
         $submission->active = 'Yes';
         $submission->save();
         return redirect('dashboard');
+    }
+
+    public function chairSubmissions(Conference $conference){
+        $submissions = Mongo_subs::where('ConfID', $conference->ConfID)->get();
+        return view('submissions.submission-chair', [
+            'submissions' => $submissions
+        ]);
     }
 }

@@ -39,6 +39,7 @@ Route::get('/my-submissions/{submission}', [MySubmissionsController::class, 'edi
 Route::post('/my-submissions/{submission}', [MySubmissionsController::class, 'edit2']);
 Route::put('/my-submissions/{submission}/b', [MySubmissionsController::class, 'inactivate'])->name('my_submissions.inactivate');
 Route::put('/my-submissions/{submission}/a', [MySubmissionsController::class, 'recover'])->name('my_submissions.recover');
+Route::get('/submissions/{conference}', [MySubmissionsController::class, 'chairSubmissions'])->name('submissions.chair');
 Route::get('/conference', [ConferenceController::class, 'index'])->name('conference');
 Route::get('/users', [UserController::class, 'index'])->name('users');
 Route::get('/users-info', [UsersInfoController::class, 'index'])->name('users.info');
