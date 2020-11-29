@@ -113,7 +113,7 @@
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-1" for="active">Active</label>
                     <select class="border w-full p-1" name="active">
-                        <option>Active</option>
+                        <option disabled>Active</option>
                         <option>Yes</option>
                         <option>No</option>
                     </select>

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Country;
 use App\Models\Mongo_subs;
+use App\Models\User;
 use App\Models\UsersInfo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -48,11 +50,29 @@ class MySubmissionsController extends Controller
         $modifiedSubmission->submission_id = $submission->ConfID . "_" . $submissionsCount;
         $modifiedSubmission->prev_submission_id = $submission->submission_id;
         $modifiedSubmission->ConfID = $submission->ConfID;
-        dd($submission->keywords);
-        $modifiedSubmission->keywords = $submission->keywords;
+        $newKeywords = explode(", ", $request['keywords']);
+        $modifiedSubmission->keywords = $newKeywords;
         $modifiedSubmission->title = $request['title'];
         $modifiedSubmission->abstract = $request['abstract'];
-        $modifiedSubmission->authors = $request['abstract'];
+
+        $authors = [];
+        foreach ($request['author'] as $author) {
+            $spaceIndex = strpos($author, ' ');
+            $name = substr($author, 0, $spaceIndex);
+            $userInfo = UsersInfo::where('Name', 'like', '%' . $name . '%')->get()[0];
+            $user = User::where('id', $userInfo->AuthenticationID)->get()[0];
+            $countryName = Country::where('CountryCode', $userInfo->CountryCode)->get()[0];
+            $authorDetail = [
+                'authenticationID' => $userInfo->AuthenticationID,
+                'name' => $userInfo->Name . " " . $userInfo->LastName,
+                'email' => $user->email,
+                'affil' => $userInfo->Affiliation,
+                'country' => $countryName->CountryName
+            ];
+            array_push($authors, $authorDetail);
+        }
+
+        $modifiedSubmission->authors = $authors;
         $modifiedSubmission->submitted_by = $request['submitted_by'];
         $modifiedSubmission->corresponding_author = $request['corresponding_author'];
         $modifiedSubmission->type = $request['type'];
