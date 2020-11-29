@@ -50,8 +50,8 @@ Route::put('/conference/{conference}', [ConferenceController::class, 'update'])-
 Route::delete('/conference/{conference}', [ConferenceController::class, 'delete'])->name('conference.delete');
 Route::put('/conference/change-activation/{conference}', [ConferenceController::class, 'changeActivation'])->name('conference.changeactivation');
 
-Route::get('/submission/create', [MongoSubsController::class, 'create'])->name('submission_create');
-Route::post('/submission/create', [MongoSubsController::class, 'store']);
+Route::get('/submission/create/{conference}', [MongoSubsController::class, 'create'])->name('submission_create');
+Route::post('/submission/create/{conference}', [MongoSubsController::class, 'store']);
 
 
 

@@ -11,8 +11,8 @@ class Mongo_subs extends Eloquent
     protected $collection = 'mongo_subs';
 
     protected $fillable = [
-        'prev_submission_id',
-        'submission_id',
+        //'prev_submission_id',
+        //'submission_id',
         'title',
         'abstract',
         'keywords',

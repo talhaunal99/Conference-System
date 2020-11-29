@@ -3,31 +3,33 @@
 @section('content')
     <div class="flex justify-center">
         <div class="w-5/12 bg-gradient-to-r from-teal-400 to-blue-500 p-6 rounded-lg">
-            <form action="{{ route('submission_create') }}" method="post">
+            <form action="{{ route('submission_create', $conference) }}" method="post">
                 @csrf
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-1" for="prev_submission_id">Previous Submission ID</label>
-                    <x-jet-input class="w-3/6 border-4 border-pink-800 placeholder-gray-500 focus:placeholder-gray-300" type="text" name="prev_submission_id" placeholder="Previous Submission ID">
-                    </x-jet-input>
-                </div>
+{{--                <div class="mb-4">--}}
+{{--                    <label class="block text-gray-700 text-sm font-bold mb-1" for="prev_submission_id">Previous Submission ID</label>--}}
+{{--                    <x-jet-input class="w-3/6 border-4 border-pink-800 placeholder-gray-500 focus:placeholder-gray-300" type="text" name="prev_submission_id" placeholder="Previous Submission ID">--}}
+{{--                    </x-jet-input>--}}
+{{--                </div>--}}
 
-                @error('prev_submission_id')
-                <div class="text-pink-900	 mt-2 text-sm">
-                    {{ $message }}
-                </div>
-                @enderror
+{{--                @error('prev_submission_id')--}}
+{{--                <div class="text-pink-900	 mt-2 text-sm">--}}
+{{--                    {{ $message }}--}}
+{{--                </div>--}}
+{{--                @enderror--}}
 
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-1" for="submission_id">Submission ID</label>
-                    <x-jet-input class="w-3/6 border-4 border-pink-800 placeholder-gray-500 focus:placeholder-gray-300" type="text" name="submission_id" placeholder="Submission ID">
-                    </x-jet-input>
-                </div>
+{{--                <div class="mb-4">--}}
+{{--                    <label class="block text-gray-700 text-sm font-bold mb-1" for="submission_id">Submission ID</label>--}}
+{{--                    <x-jet-input class="w-3/6 border-4 border-pink-800 placeholder-gray-500 focus:placeholder-gray-300" type="text" name="submission_id" placeholder="Submission ID">--}}
+{{--                    </x-jet-input>--}}
+{{--                </div>--}}
 
-                @error('submission_id')
-                <div class="text-pink-900	 mt-2 text-sm">
-                    {{ $message }}
-                </div>
-                @enderror
+{{--                @error('submission_id')--}}
+{{--                <div class="text-pink-900	 mt-2 text-sm">--}}
+{{--                    {{ $message }}--}}
+{{--                </div>--}}
+{{--                @enderror--}}
+
+                <input type="hidden" id="confID" name="confID" value="{{ $conference->ConfID }}">
 
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-1" for="title">Title</label>
@@ -59,27 +61,65 @@
                     </x-jet-input>
                 </div>
 
-                <label class="block text-gray-700 text-sm font-bold mb-1" for="author_table">Authors</label>
-                <table id="author_table" border="1">
-                    <input type="text" class="form-control" id="authors_authenticationID" placeholder="Authentication ID">
-                    <input type="text" class="form-control" id="authors_name" placeholder="Name">
-                    <input type="text" class="form-control" id="authors_email" placeholder="Email">
-                    <input type="text" class="form-control" id="authors_affil" placeholder="Affiliation">
-                    <input type="text" class="form-control" id="authors_country" placeholder="Country">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-1" for="authors">Authors (Select with CTRL + Click)</label>
+                    <select name="author[]" multiple class="form-control">
+                        @foreach ($users as $user)
+                            <option>{{ $user->Name }}</option>
+                        @endforeach
+                    </select>
+                </div>
 
-                </table>
 
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-1" for="corresponding_author">Corresponding Author</label>
-                    <x-jet-input class="w-3/6 border-4 border-pink-800 placeholder-gray-500 focus:placeholder-gray-300" type="text" name="corresponding_author" placeholder="Corresponding Author">
-                    </x-jet-input>
+                    <label class="block text-gray-700 text-sm font-bold mb-1" for="submitted_by">Submitted By</label>
+                    <select class="border w-full p-1" name="submitted_by">
+                        <option disabled>Select Submitter</option>
+                        @foreach ($users as $user)
+                            <option>{{ $user->Name }}</option>
+                        @endforeach
+                    </select>
                 </div>
 
-                @error('corresponding_author')
-                <div class="text-pink-900	 mt-2 text-sm">
-                    {{ $message }}
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-1" for="submitted_by">Corresponding Author</label>
+                    <select class="border w-full p-1" name="corresponding_author">
+                        <option disabled>Select Corresponding Author</option>
+                        @foreach ($users as $user)
+                            <option>{{ $user->Name }}</option>
+                        @endforeach
+                    </select>
                 </div>
-                @enderror
+
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-1" for="type">Type</label>
+                    <select class="border w-full p-1" name="type">
+                        <option disabled>Select Type</option>
+                        <option>article</option>
+                        <option>abstract</option>
+                        <option>poster</option>
+                        <option>short paper</option>
+                        <option>*</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-1" for="status">Status</label>
+                    <select class="border w-full p-1" name="status">
+                        <option>Status</option>
+                        <option>Original</option>
+                        <option>Modified</option>
+                    </select>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-1" for="active">Active</label>
+                    <select class="border w-full p-1" name="active">
+                        <option>Active</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                    </select>
+                </div>
 
                 <div>
                     <x-jet-button type="submit" class="bg-red-500 text-white px-4 py-2 rounded font-medium">Create</x-jet-button>

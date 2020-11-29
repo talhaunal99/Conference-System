@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Conference;
+use App\Models\ConferenceRole;
+use App\Models\Country;
 use App\Models\Mongo_subs;
+use App\Models\User;
+use App\Models\UsersInfo;
 use Illuminate\Http\Request;
 use phpDocumentor\Reflection\Types\True_;
 
@@ -12,8 +17,11 @@ class MongoSubsController extends Controller
     public function index(){
 
     }
-    public function create(){
-        return view('submissions.create');
+    public function create(Conference $conference){
+        $users = UsersInfo::get();
+        return view('submissions.create',
+        ['conference' => $conference,
+            'users' => $users]);
     }
 
     public function store(Request $request){
@@ -28,20 +36,36 @@ class MongoSubsController extends Controller
             'authors_affil' => 'required',
             'authors_country' => 'required',
         ]);*/
+        $submissionsCount = Mongo_subs::where('ConfID', $request['confID'])->get()->count();
 
         $submission = new Mongo_subs();
-
-        $submission->prev_submission_id = $request->prev_submission_id;
-        $submission->submission_id = $request->submission_id;
+        $submission->submission_id = $request['confID'] . "_" . $submissionsCount;
+        $submission->ConfID = $request['confID'];
         $submission->title = $request->title;
         $submission->abstract = $request->abstract;
-        $submission->authors = [
-            'authenticationID' => $request->authors_authenticationID,
-            'name' => $request->authors_name,
-            'email' => $request->authors_email,
-            'affil' => $request->authors_affil,
-            'country' => $request->authors_country,
-        ];
+
+        $authors = [];
+        foreach ($request['author'] as $author) {
+            $userInfo = UsersInfo::where('Name', $author)->get()[0];
+            $user = User::where('id', $userInfo->AuthenticationID)->get()[0];
+            $countryName = Country::where('CountryCode', $userInfo->CountryCode)->get()[0];
+            $authorDetail = [
+                'authenticationID' => $userInfo->AuthenticationID,
+                'name' => $userInfo->Name . " " . $userInfo->LastName,
+                'email' => $user->email,
+                'affil' => $userInfo->Affiliation,
+                'country' => $countryName->CountryName
+            ];
+            array_push($authors, $authorDetail);
+
+            $conferenceRole = new ConferenceRole();
+            $conferenceRole->ConfID = $request['confID'];
+            $conferenceRole->Role = 'Author';
+            $conferenceRole->AuthenticationID = $userInfo->AuthenticationID;
+            $conferenceRole->save();
+        }
+
+        $submission->authors = $authors;
         $submission->corresponding_author = $request->corresponding_author;
         $submission->submission_date_time = date('Y-m-d H:i:s');
 
@@ -54,14 +78,14 @@ class MongoSubsController extends Controller
         }
         $submission->keywords = $keys;
 
-        $submission->submitted_by = "";
+        $submission->submitted_by = $request['submitted_by'];
         $submission->pdf_path = "";
-        $submission->type = "";
-        $submission->status = "";
-        $submission->active = "";
+        $submission->type = $request['type'];
+        $submission->status = $request['status'];
+        $submission->active = $request['active'];
 
         $submission->save();
 
-        return redirect()->route('submission_create');
+        return redirect()->route('dashboard');
     }
 }

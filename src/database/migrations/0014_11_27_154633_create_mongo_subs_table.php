@@ -16,6 +16,7 @@ class CreateMongoSubsTable extends Migration
         Schema::connection('mongodb')->create('mongo_subs', function ($collection) {
             $collection->string('prev_submission_id');
             $collection->string('submission_id');
+            $collection->string('ConfID');
             $collection->string('title');
             $collection->string('abstract');
             $collection->string('keywords');

@@ -27,6 +27,8 @@
             @if (Auth::user()->role == 'Admin')
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Activation</th>
             @endif
+            <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Submission</th>
+
         </tr>
         </thead>
         <tbody>
@@ -82,6 +84,13 @@
                     </form>
                 </td>
                 @endif
+                <td>
+                    <form action="{{ route('submission_create', $conferencesAndTag[0]) }}" method="get">
+                        @csrf
+                        @method('GET')
+                        <button type="submit" class="inline items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-700">Make submission</button>
+                    </form>
+                </td>
             </tr>
             @endif
         @endforeach
