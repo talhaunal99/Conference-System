@@ -44,7 +44,12 @@
                     @endforeach
                 </td>
                 <td class="px-6 py-4 text-center">{{ $submission->submitted_by }}</td>
-                <td class="px-6 py-4 text-center">{{ $submission->pdf_path }}</td>
+                <td class="px-6 py-4 text-center">
+                    {{ $submission->pdf_path }}
+                    <embed src="{{ asset('storage/uploads/1606565804_BIL372_Arasinav1_AlperKaanYILDIZ_141101027.pdf') }}" width="800" height="500" alt="pdf" />
+
+
+                </td>
                 <td class="px-6 py-4 text-center">{{ $submission->type }}</td>
                 <td class="px-6 py-4 text-center">{{ $submission->status }}</td>
                 <td class="px-6 py-4 text-center">{{ $submission->active }}</td>

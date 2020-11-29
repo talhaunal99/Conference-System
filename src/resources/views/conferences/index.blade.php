@@ -88,7 +88,11 @@
                     <form action="{{ route('submission_create', $conferencesAndTag[0]) }}" method="get">
                         @csrf
                         @method('GET')
-                        <button type="submit" class="inline items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-700">Make submission</button>
+                        @if ($conferencesAndTag[0]->approved == 1)
+                            <button type="submit" class="inline items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-700">Make submission</button>
+                        @else
+                            Conference is not activated yet. You cannot make a submission.
+                        @endif
                     </form>
                 </td>
             </tr>

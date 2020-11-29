@@ -105,7 +105,7 @@ class MongoSubsController extends Controller
         $submission->keywords = $keys;
 
         $submission->submitted_by = $request['submitted_by'];
-        $submission->pdf_path = "";
+        $submission->pdf_path = $filePath;
         $submission->type = $request['type'];
         $submission->status = 'Original';
         $submission->active = $request['active'];
