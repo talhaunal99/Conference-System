@@ -36,7 +36,7 @@ class MongoSubsController extends Controller
             'authors_affil' => 'required',
             'authors_country' => 'required',
         ]);*/
-        $submissionsCount = Mongo_subs::where('ConfID', $request['confID'])->get()->count();
+        $submissionsCount = Mongo_subs::where('ConfID', $request['confID'])->get()->count() + 1;
 
         $submission = new Mongo_subs();
         $submission->submission_id = $request['confID'] . "_" . $submissionsCount;
@@ -58,11 +58,19 @@ class MongoSubsController extends Controller
             ];
             array_push($authors, $authorDetail);
 
-            $conferenceRole = new ConferenceRole();
-            $conferenceRole->ConfID = $request['confID'];
-            $conferenceRole->Role = 'Author';
-            $conferenceRole->AuthenticationID = $userInfo->AuthenticationID;
-            $conferenceRole->save();
+            $existingConferenceRole = ConferenceRole::where('confID', $request['confID'])
+                ->where('Role', 'Author')
+                ->where('AuthenticationID', $userInfo->AuthenticationID)
+                ->get()
+                ->count();
+
+            if ($existingConferenceRole == 0) {
+                $conferenceRole = new ConferenceRole();
+                $conferenceRole->ConfID = $request['confID'];
+                $conferenceRole->Role = 'Author';
+                $conferenceRole->AuthenticationID = $userInfo->AuthenticationID;
+                $conferenceRole->save();
+            }
         }
 
         $submission->authors = $authors;
