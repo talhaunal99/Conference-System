@@ -43,6 +43,11 @@
                 <td class="px-6 py-4 text-center">{{ $submission->status }}</td>
                 <td class="px-6 py-4 text-center">{{ $submission->active }}</td>
                 <td>
+                    <form action="{{ route('my_submissions.edit', $submission) }}" method="get">
+                        @csrf
+                        @method('GET')
+                        <button type="submit" class="inline items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-500">Edit</button>
+                    </form>
                     <form action="{{ route('my_submissions.delete', $submission) }}" method="post">
                         @csrf
                         @method('DELETE')

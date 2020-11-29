@@ -35,6 +35,8 @@ Route::get('/ajax-request', [AjaxController::class, 'getCountryCity']);
 
 Route::get('/my-submissions', [MySubmissionsController::class, 'index'])->name('my_submissions');
 Route::delete('/my-submissions/{submission}', [MySubmissionsController::class, 'delete'])->name('my_submissions.delete');
+Route::get('/my-submissions/{submission}', [MySubmissionsController::class, 'edit'])->name('my_submissions.edit');
+Route::post('/my-submissions/{submission}', [MySubmissionsController::class, 'edit2'])->name('my_submissions.edit');
 Route::get('/conference', [ConferenceController::class, 'index'])->name('conference');
 Route::get('/users', [UserController::class, 'index'])->name('users');
 Route::get('/users-info', [UsersInfoController::class, 'index'])->name('users.info');

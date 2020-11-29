@@ -40,6 +40,7 @@ class MongoSubsController extends Controller
 
         $submission = new Mongo_subs();
         $submission->submission_id = $request['confID'] . "_" . $submissionsCount;
+        $submission->prev_submission_id = null;
         $submission->ConfID = $request['confID'];
         $submission->title = $request->title;
         $submission->abstract = $request->abstract;
@@ -89,7 +90,8 @@ class MongoSubsController extends Controller
         $submission->submitted_by = $request['submitted_by'];
         $submission->pdf_path = "";
         $submission->type = $request['type'];
-        $submission->status = $request['status'];
+//        $submission->status = $request['status'];
+        $submission->status = 'Original';
         $submission->active = $request['active'];
 
         $submission->save();

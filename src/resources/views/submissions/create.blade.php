@@ -106,9 +106,7 @@
                 <div class="mb-4">
                     <label class="block text-gray-700 text-sm font-bold mb-1" for="status">Status</label>
                     <select class="border w-full p-1" name="status">
-                        <option>Status</option>
                         <option>Original</option>
-                        <option>Modified</option>
                     </select>
                 </div>
 
