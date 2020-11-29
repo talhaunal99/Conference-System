@@ -83,5 +83,30 @@ class DatabaseSeeder extends Seeder
             'CityName' => 'Nice',
             'CountryCode' => 'FRA',
         ]);
+
+        DB::table('users')->insert([
+            'id' => 2,
+            'username' => 'talha',
+            'email' => 'talha@talha.com',
+            'password' => 'talha123',
+            'approved' => 1,
+            'role' => 'Admin',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+        ]);
+
+        /*
+         * Tabloların hepsini silme:
+         * 1) use admin
+         * 2) db.mongo_subs.drop()
+         * 3) php artisan migrate:fresh
+         * Tabloların hepsini silme ve seedi kullanma
+         * 1) use admin
+         * 2) db.mongo_subs.drop()
+         * 3) php artisan migrate:fresh --seed
+         *
+         * TODO:
+         * 1) User seedi.
+        */
     }
 }
