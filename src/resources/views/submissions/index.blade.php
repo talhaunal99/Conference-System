@@ -4,6 +4,7 @@
     <table id="submission-table" class="relative w-full border table-auto">
         <thead>
         <tr>
+            <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Submission Id</th>
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Conference Name</th>
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Title</th>
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Abstract</th>
@@ -16,12 +17,14 @@
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Type</th>
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Status</th>
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Active</th>
+            <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Revised version of</th>
             <th class="sticky top-0 px-6 py-3 text-red-900 bg-red-300">Actions</th>
         </tr>
         </thead>
         <tbody>
         @foreach ($submissions as $submission)
             <tr>
+                <td class="px-6 py-4 text-center">{{ $submission->submission_id }}</td>
                 <td class="px-6 py-4 text-center">{{ $submission->ConfID }}</td>
                 <td class="px-6 py-4 text-center">{{ $submission->title }}</td>
                 <td class="px-6 py-4 text-center">{{ $submission->abstract }}</td>
@@ -42,6 +45,7 @@
                 <td class="px-6 py-4 text-center">{{ $submission->type }}</td>
                 <td class="px-6 py-4 text-center">{{ $submission->status }}</td>
                 <td class="px-6 py-4 text-center">{{ $submission->active }}</td>
+                <td class="px-6 py-4 text-center">{{ $submission->prev_submission_id }}</td>
                 <td>
                     <form action="{{ route('my_submissions.edit', $submission) }}" method="get">
                         @csrf
