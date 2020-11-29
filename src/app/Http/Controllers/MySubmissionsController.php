@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Country;
 use App\Models\Mongo_subs;
+use App\Models\Submission;
 use App\Models\User;
 use App\Models\UsersInfo;
 use Illuminate\Http\Request;
@@ -12,9 +13,13 @@ use Illuminate\Support\Facades\Auth;
 class MySubmissionsController extends Controller
 {
     public function index(){
-        $myUserInfo = UsersInfo::where('AuthenticationID', Auth::user()->id)->get()[0];
-        $myName = $myUserInfo->Name;
-        $mySubmissions = Mongo_subs::where('submitted_by', $myName)->get();
+        $myUserInfo = UsersInfo::where('AuthenticationID', Auth::user()->id)->get();
+        if (count($myUserInfo) == 0)
+            $mySubmissions = [];
+        else {
+            $myName = $myUserInfo[0]->Name;
+            $mySubmissions = Mongo_subs::where('submitted_by', $myName)->get();
+        }
         return view('submissions.index', [
             'submissions' => $mySubmissions
         ]);
@@ -81,6 +86,17 @@ class MySubmissionsController extends Controller
         $modifiedSubmission->submission_date_time = date('Y-m-d H:i:s');
 
         $modifiedSubmission->save();
+
+        /* Create Submission for MySQL. */
+        $mysqlSubmission = new Submission();
+
+        $user = UsersInfo::where('Name', $request['submitted_by'])->get()[0];
+        $mysqlSubmission->AuthenticationID = $user->AuthenticationID;
+        $mysqlSubmission->ConfID = $submission->ConfID;
+        $mysqlSubmission->submission_id = $submission->ConfID . "_" . $submissionsCount;
+        $mysqlSubmission->prev_submission_id = $submission->submission_id;
+
+        $mysqlSubmission->save();
 
         return redirect('dashboard');
     }

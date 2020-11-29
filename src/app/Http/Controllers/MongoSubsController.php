@@ -7,6 +7,7 @@ use App\Models\Conference;
 use App\Models\ConferenceRole;
 use App\Models\Country;
 use App\Models\Mongo_subs;
+use App\Models\Submission;
 use App\Models\User;
 use App\Models\UsersInfo;
 use Illuminate\Http\Request;
@@ -44,6 +45,17 @@ class MongoSubsController extends Controller
         $submission->ConfID = $request['confID'];
         $submission->title = $request->title;
         $submission->abstract = $request->abstract;
+
+        /* Create Submission for MySQL. */
+        $mysqlSubmission = new Submission();
+
+        $user = UsersInfo::where('Name', $request['submitted_by'])->get()[0];
+        $mysqlSubmission->AuthenticationID = $user->AuthenticationID;
+        $mysqlSubmission->ConfID = $request['confID'];
+        $mysqlSubmission->submission_id = $request['confID'] . "_" . $submissionsCount;
+        $mysqlSubmission->prev_submission_id = null;
+
+        $mysqlSubmission->save();
 
         $authors = [];
         foreach ($request['author'] as $author) {
