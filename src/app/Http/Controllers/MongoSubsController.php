@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Conference;
 use App\Models\ConferenceRole;
 use App\Models\Country;
+use App\Models\File;
 use App\Models\Mongo_subs;
 use App\Models\Submission;
 use App\Models\User;
@@ -26,17 +27,21 @@ class MongoSubsController extends Controller
     }
 
     public function store(Request $request){
-        /*$this->validate($request, [
-            'prev_submission_id' => 'required',
-            'submission_id' => 'required',
-            'title' => 'required',
-            'abstract' => 'required',
-            'authors_authenticationID' => 'required',
-            'authors_name' => 'required',
-            'authors_email' => 'required',
-            'authors_affil' => 'required',
-            'authors_country' => 'required',
-        ]);*/
+        $request->validate([
+            'file' => 'required|mimes:pdf|max:2048'
+        ]);
+
+        $fileModel = new File;
+
+        if($request->file()) {
+            $fileName = time().'_'.$request->file->getClientOriginalName();
+            $filePath = $request->file('file')->storeAs('uploads', $fileName, 'public');
+
+            $fileModel->name = time().'_'.$request->file->getClientOriginalName();
+            $fileModel->file_path = '/storage/' . $filePath;
+            $fileModel->save();
+        }
+
         $submissionsCount = Mongo_subs::where('ConfID', $request['confID'])->get()->count() + 1;
 
         $submission = new Mongo_subs();
@@ -102,7 +107,6 @@ class MongoSubsController extends Controller
         $submission->submitted_by = $request['submitted_by'];
         $submission->pdf_path = "";
         $submission->type = $request['type'];
-//        $submission->status = $request['status'];
         $submission->status = 'Original';
         $submission->active = $request['active'];
 

@@ -3,32 +3,8 @@
 @section('content')
     <div class="flex justify-center">
         <div class="w-5/12 bg-gradient-to-r from-teal-400 to-blue-500 p-6 rounded-lg">
-            <form action="{{ route('submission_create', $conference) }}" method="post">
+            <form action="{{ route('submission_create', $conference) }}" method="post" enctype="multipart/form-data">
                 @csrf
-{{--                <div class="mb-4">--}}
-{{--                    <label class="block text-gray-700 text-sm font-bold mb-1" for="prev_submission_id">Previous Submission ID</label>--}}
-{{--                    <x-jet-input class="w-3/6 border-4 border-pink-800 placeholder-gray-500 focus:placeholder-gray-300" type="text" name="prev_submission_id" placeholder="Previous Submission ID">--}}
-{{--                    </x-jet-input>--}}
-{{--                </div>--}}
-
-{{--                @error('prev_submission_id')--}}
-{{--                <div class="text-pink-900	 mt-2 text-sm">--}}
-{{--                    {{ $message }}--}}
-{{--                </div>--}}
-{{--                @enderror--}}
-
-{{--                <div class="mb-4">--}}
-{{--                    <label class="block text-gray-700 text-sm font-bold mb-1" for="submission_id">Submission ID</label>--}}
-{{--                    <x-jet-input class="w-3/6 border-4 border-pink-800 placeholder-gray-500 focus:placeholder-gray-300" type="text" name="submission_id" placeholder="Submission ID">--}}
-{{--                    </x-jet-input>--}}
-{{--                </div>--}}
-
-{{--                @error('submission_id')--}}
-{{--                <div class="text-pink-900	 mt-2 text-sm">--}}
-{{--                    {{ $message }}--}}
-{{--                </div>--}}
-{{--                @enderror--}}
-
                 <input type="hidden" id="confID" name="confID" value="{{ $conference->ConfID }}">
 
                 <div class="mb-4">
@@ -119,11 +95,15 @@
                     </select>
                 </div>
 
+                <div class="mb-4">
+                    <input type="file" name="file" class="custom-file-input" id="chooseFile">
+                    <label class="custom-file-label" for="chooseFile">Select PDF</label>
+                </div>
+
                 <div>
                     <x-jet-button type="submit" class="bg-red-500 text-white px-4 py-2 rounded font-medium">Create</x-jet-button>
                 </div>
             </form>
         </div>
     </div>
-
 @endsection
