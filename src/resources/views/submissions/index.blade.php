@@ -53,6 +53,16 @@
                         @method('DELETE')
                         <button type="submit" class="inline items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-700">Delete</button>
                     </form>
+                    <form action="{{ route('my_submissions.inactivate', $submission) }}" method="post">
+                        @csrf
+                        @method('PUT')
+                        <button type="submit" class="inline items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-700">Inactivate</button>
+                    </form>
+                    <form action="{{ route('my_submissions.recover', $submission) }}" method="post">
+                        @csrf
+                        @method('PUT')
+                        <button type="submit" class="inline items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-700">Recover</button>
+                    </form>
                 </td>
             </tr>
         @endforeach

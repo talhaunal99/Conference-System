@@ -100,4 +100,26 @@ class MySubmissionsController extends Controller
 
         return redirect('dashboard');
     }
+
+    public function inactivate(Mongo_subs $submission){
+        $allSubmissions = Mongo_subs::where('prev_submission_id', $submission->submission_id)->get();
+        foreach ($allSubmissions as $allSubmission){
+            $allSubmission->active = 'No';
+            $allSubmission->save();
+        }
+        $submission->active = 'No';
+        $submission->save();
+        return redirect('dashboard');
+    }
+
+    public function recover(Mongo_subs $submission){
+        $allSubmissions = Mongo_subs::where('prev_submission_id', $submission->submission_id)->get();
+        foreach ($allSubmissions as $allSubmission){
+            $allSubmission->active = 'Yes';
+            $allSubmission->save();
+        }
+        $submission->active = 'Yes';
+        $submission->save();
+        return redirect('dashboard');
+    }
 }
