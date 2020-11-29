@@ -4,6 +4,7 @@ use App\Http\Controllers\AjaxController;
 use App\Http\Controllers\AssignController;
 use App\Http\Controllers\ConferenceController;
 use App\Http\Controllers\FileUploadController;
+use App\Http\Controllers\MySubmissionsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UsersInfoController;
 use App\Http\Controllers\MongoSubsController;
@@ -32,6 +33,8 @@ Route::get('/upload-file', [FileUploadController::class, 'createForm']);
 Route::post('/upload-file', [FileUploadController::class, 'fileUpload'])->name('fileUpload');
 Route::get('/ajax-request', [AjaxController::class, 'getCountryCity']);
 
+Route::get('/my-submissions', [MySubmissionsController::class, 'index'])->name('my_submissions');
+Route::delete('/my-submissions/{submission}', [MySubmissionsController::class, 'delete'])->name('my_submissions.delete');
 Route::get('/conference', [ConferenceController::class, 'index'])->name('conference');
 Route::get('/users', [UserController::class, 'index'])->name('users');
 Route::get('/users-info', [UsersInfoController::class, 'index'])->name('users.info');
