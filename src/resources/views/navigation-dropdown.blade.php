@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('conference') }}" :active="request()->routeIs('conference')">
+                    <x-jet-nav-link href="{{ route('conference') }}">
                         @if (Auth::user()->role == 'Admin')
                         {{ __('Conferences & Approval') }}
                         @else
@@ -36,19 +36,19 @@
                 @endif
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('conference.chair') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="{{ route('conference.chair') }}">
                         {{ __('Conferences You Chair') }}
                     </x-jet-nav-link>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('users.info') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="{{ route('users.info') }}">
                         {{ __('User Info') }}
                     </x-jet-nav-link>
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('submission_create') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="{{ route('submission_create') }}">
                         {{ __('Submission') }}
                     </x-jet-nav-link>
                 </div>
