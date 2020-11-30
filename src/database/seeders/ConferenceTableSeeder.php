@@ -1,6 +1,9 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ConferenceTableSeeder extends Seeder
 {
@@ -12,12 +15,8 @@ class ConferenceTableSeeder extends Seeder
      */
     public function run()
     {
-        
-
-        \DB::table('Conference')->delete();
-        
-        \DB::table('Conference')->insert(array (
-            0 => 
+        DB::table('Conference')->insert(array (
+            0 =>
             array (
                 'ConfID' => 'flog_2020',
                 'CreationDateTime' => '2020-11-01 13:53:00',
@@ -31,7 +30,7 @@ class ConferenceTableSeeder extends Seeder
                 'CreatorUser' => 2,
                 'approved' => 0,
             ),
-            1 => 
+            1 =>
             array (
                 'ConfID' => 'jone_2021',
                 'CreationDateTime' => '2020-11-30 13:38:00',
@@ -46,7 +45,7 @@ class ConferenceTableSeeder extends Seeder
                 'approved' => 1,
             ),
         ));
-        
-        
+
+
     }
 }

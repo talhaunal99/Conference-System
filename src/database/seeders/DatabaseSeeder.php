@@ -22,6 +22,9 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             UsersInfoSeeder::class,
             UsersLogSeeder::class,
+            ConferenceTableSeeder::class,
+            ConferenceTagTableSeeder::class,
+            ConferenceRoleTableSeeder::class,
         ]);
 
         /*
