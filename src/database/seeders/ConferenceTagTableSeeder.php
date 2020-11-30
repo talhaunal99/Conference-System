@@ -17,47 +17,85 @@ class ConferenceTagTableSeeder extends Seeder
     {
         DB::table('ConferenceTag')->insert(array (
             0 =>
-            array (
-                'ConfID' => 'flog_2020',
-                'Tag' => 'Climate',
-            ),
+                array (
+                    'ConfID' => 'dmc_2020',
+                    'Tag' => 'Artificial Intelligence',
+                ),
             1 =>
-            array (
-                'ConfID' => 'flog_2020',
-                'Tag' => 'Economics Topics',
-            ),
+                array (
+                    'ConfID' => 'dmc_2020',
+                    'Tag' => 'Data Mining',
+                ),
             2 =>
-            array (
-                'ConfID' => 'flog_2020',
-                'Tag' => 'Economy Updates',
-            ),
+                array (
+                    'ConfID' => 'flog_2020',
+                    'Tag' => 'Climate',
+                ),
             3 =>
-            array (
-                'ConfID' => 'flog_2020',
-                'Tag' => 'Financial Risk',
-            ),
+                array (
+                    'ConfID' => 'flog_2020',
+                    'Tag' => 'Economics Topics',
+                ),
             4 =>
-            array (
-                'ConfID' => 'flog_2020',
-                'Tag' => 'Threats',
-            ),
+                array (
+                    'ConfID' => 'flog_2020',
+                    'Tag' => 'Economy Updates',
+                ),
             5 =>
-            array (
-                'ConfID' => 'jone_2021',
-                'Tag' => 'Automation',
-            ),
+                array (
+                    'ConfID' => 'flog_2020',
+                    'Tag' => 'Financial Risk',
+                ),
             6 =>
-            array (
-                'ConfID' => 'jone_2021',
-                'Tag' => 'Cybersecurity',
-            ),
+                array (
+                    'ConfID' => 'flog_2020',
+                    'Tag' => 'Threats',
+                ),
             7 =>
-            array (
-                'ConfID' => 'jone_2021',
-                'Tag' => 'Technology Updates',
-            ),
+                array (
+                    'ConfID' => 'jone_2021',
+                    'Tag' => 'Automation',
+                ),
+            8 =>
+                array (
+                    'ConfID' => 'jone_2021',
+                    'Tag' => 'Cybersecurity',
+                ),
+            9 =>
+                array (
+                    'ConfID' => 'jone_2021',
+                    'Tag' => 'Technology Updates',
+                ),
+            10 =>
+                array (
+                    'ConfID' => 'jone_2021_1',
+                    'Tag' => 'Automation',
+                ),
+            11 =>
+                array (
+                    'ConfID' => 'jone_2021_1',
+                    'Tag' => 'Cybersecurity',
+                ),
+            12 =>
+                array (
+                    'ConfID' => 'jone_2021_1',
+                    'Tag' => 'Technology Updates',
+                ),
+            13 =>
+                array (
+                    'ConfID' => 'jone_2021_2',
+                    'Tag' => 'Automation',
+                ),
+            14 =>
+                array (
+                    'ConfID' => 'jone_2021_2',
+                    'Tag' => 'Cybersecurity',
+                ),
+            15 =>
+                array (
+                    'ConfID' => 'jone_2021_2',
+                    'Tag' => 'Technology Updates',
+                ),
         ));
-
-
     }
 }
