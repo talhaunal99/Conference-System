@@ -22,7 +22,7 @@ class UsersInfo extends Migration
             $table->string('Phone')->unique();
             $table->string('Fax')->unique();
             $table->string('URL')->unique();
-            $table->string('Address')->unique();
+            $table->string('Address');
 
             $table->string('CountryCode', 3);
             $table->unsignedInteger('CityId');

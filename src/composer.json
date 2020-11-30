@@ -19,6 +19,7 @@
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.0",
         "mongodb/mongodb": "^1.8",
+        "orangehill/iseed": "^2.6",
         "spatie/laravel-permission": "^3.17",
         "yajra/laravel-datatables-oracle": "~9.0"
     },
