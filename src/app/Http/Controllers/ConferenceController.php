@@ -76,7 +76,10 @@ class ConferenceController extends Controller
         if (count($conferences) != 0) {
             $latestConfID = $conferences[0]->ConfID;
             $pos = strrpos($latestConfID, "_");
-            if ($pos) {
+            $tireCount = substr_count($latestConfID,"_");
+            if ($tireCount == 1)
+                $ConfID .= '_1';
+            else if ($pos) {
                 $version = ((int)substr($latestConfID, $pos + 1)) + 1;
                 $ConfID .= '_' . $version;
             }
