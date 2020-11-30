@@ -15,7 +15,6 @@ class UsersLogSeeder extends Seeder
     public function run()
     {
         DB::table('UsersLog')->insert([
-            'id' => 1,
             'Salutation' => 'Admin',
             'Name' => 'Admin of',
             'LastName' => 'the website',
@@ -33,7 +32,6 @@ class UsersLogSeeder extends Seeder
         ]);
 
         DB::table('UsersLog')->insert([
-            'id' => 2,
             'Salutation' => 'Mr.',
             'Name' => 'Talha',
             'LastName' => 'Ünal',
@@ -51,7 +49,6 @@ class UsersLogSeeder extends Seeder
         ]);
 
         DB::table('UsersLog')->insert([
-            'id' => 3,
             'Salutation' => 'Mr.',
             'Name' => 'Alper Kaan',
             'LastName' => 'YILDIZ',
@@ -69,7 +66,6 @@ class UsersLogSeeder extends Seeder
         ]);
 
         DB::table('UsersLog')->insert([
-            'id' => 4,
             'Salutation' => 'Mr.',
             'Name' => 'Yahya Can',
             'LastName' => 'TUĞRUL',
@@ -87,7 +83,6 @@ class UsersLogSeeder extends Seeder
         ]);
 
         DB::table('UsersLog')->insert([
-            'id' => 5,
             'Salutation' => 'Mr.',
             'Name' => 'Tansel',
             'LastName' => 'ÖZYER',
@@ -105,7 +100,6 @@ class UsersLogSeeder extends Seeder
         ]);
 
         DB::table('UsersLog')->insert([
-            'id' => 6,
             'Salutation' => 'Ms.',
             'Name' => 'Büşra',
             'LastName' => 'KARATAY',

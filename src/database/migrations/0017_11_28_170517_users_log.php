@@ -14,7 +14,7 @@ class UsersLog extends Migration
     public function up()
     {
         Schema::create('UsersLog', function (Blueprint $table) {
-            $table->integer('id');
+            $table->id();
             $table->string('Salutation');
             $table->string('Name');
             $table->string('LastName');
@@ -29,7 +29,7 @@ class UsersLog extends Migration
             $table->string('CountryCode', 3);
             $table->unsignedInteger('CityId');
             $table->unsignedBigInteger('AuthenticationID');
-            $table->primary(['id', 'AuthenticationID']);
+//            $table->primary(['id', 'AuthenticationID']);
 
             $table->foreign('CountryCode')->references('CountryCode')->on('Country');
             $table->foreign('CityId')->references('CityId')->on('CountryCity');

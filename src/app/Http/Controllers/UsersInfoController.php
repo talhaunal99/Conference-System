@@ -91,7 +91,7 @@ class UsersInfoController extends Controller
         $oldUsersInfo = UsersInfo::where('AuthenticationID', Auth::user()->id)->get()[0];
 
         $usersLog = new UsersLog();
-        $usersLog->id = $usersLatestLogCount + 1;
+//        $usersLog->id = $usersLatestLogCount + 1;
         $usersLog->Salutation = $oldUsersInfo['Salutation'];
         $usersLog->Name = $oldUsersInfo['Name'];
         $usersLog->LastName = $oldUsersInfo['LastName'];
