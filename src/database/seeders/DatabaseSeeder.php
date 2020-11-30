@@ -139,6 +139,25 @@ class DatabaseSeeder extends Seeder
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
+
+        DB::table('UsersLog')->insert([
+            'id' => 2,
+            'Salutation' => 'busra',
+            'Name' => 'Talha',
+            'LastName' => 'Ünal',
+            'Affiliation' => 'Medical Informatics Group School of Biotechnology Dublin City University',
+            'SecondaryEmail' => 'talha2@gmail.com',
+            'Phone' => '05059594562',
+            'Fax' => '+44 161 999 8888',
+            'URL' => 'http://www.example.com/believe/bit?bells=boundary&actor=acoustics',
+            'Address' => 'Etimesgut, Elvankent',
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            'CountryCode' => 'TUR',
+            'CityId' => 1,
+            'AuthenticationID' => 2,
+        ]);
+
         /*
          * Tabloların hepsini silme:
          * 1) mongo -> use admin
