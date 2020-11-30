@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             CountryCitySeeder::class,
             UserSeeder::class,
             UsersInfoSeeder::class,
-            UsersLogSeeder::class
+            UsersLogSeeder::class,
         ]);
 
         /*
