@@ -6,6 +6,9 @@ Contributors
 - Talha Ünal
 - Yahya Can Tuğrul
 
+# Demo Video
+https://drive.google.com/file/d/1PjXax1H2_EilMfkM6nG5wBfIQB0KKvpB/view?usp=sharing
+
 # User Manual
 -Look User Manual.pdf file.
 
