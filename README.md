@@ -6,6 +6,8 @@ Contributors
 - Talha Ünal
 - Yahya Can Tuğrul
 
+# User Manual
+
 # How to install
 - Install MySQL Server
 - Install MongoDB Server.
