@@ -16,25 +16,29 @@ Contributors
 - run "composer install"
 - run "npm install"
 - edit .env file
--- set MySQL connection information DB_DATABASE to your database name.
--- set DB_USERNAME to your MySQL username.
--- set DB_PASSWORD to your MySQL password.
+```
+set MySQL connection information DB_DATABASE to your database name.
+set DB_USERNAME to your MySQL username.
+set DB_PASSWORD to your MySQL password.
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=grup1
 DB_USERNAME=root
 DB_PASSWORD=123456
--- set MongoDB connection information.
+```
+```
+set MongoDB connection information.
 DB_CONNECTION_SECOND=mongodb
 DB_HOST_SECOND=127.0.0.1
 DB_PORT_SECOND=27017
 DB_DATABASE_SECOND=admin
 DB_USERNAME_SECOND=
 DB_PASSWORD_SECOND=
--- set MongoDB connection information DB_DATABASE_SECOND to your database name.
--- set DB_USERNAME_SECOND to your MongoDB username.
--- set DB_PASSWORD_SECOND to your MongoDB password.
+set MongoDB connection information DB_DATABASE_SECOND to your database name.
+set DB_USERNAME_SECOND to your MongoDB username.
+set DB_PASSWORD_SECOND to your MongoDB password.
+```
 - run "php artisan migrate:fresh --seed"
 - run "php artisan serve"
 Now the app is ready. You can go to the url specified on the terminal.
