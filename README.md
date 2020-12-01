@@ -7,6 +7,7 @@ Contributors
 - Yahya Can Tuğrul
 
 # User Manual
+-Look User Manual.pdf file.
 
 # How to install
 - Install MySQL Server
