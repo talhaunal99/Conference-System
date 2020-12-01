@@ -61,10 +61,10 @@ class UserSeeder extends Seeder
 
         DB::table('users')->insert([
             'id' => 5,
-            'username' => 'tansel',
+            'username' => 'tanselozyer',
             'email' => 'tansel@gmail.com',
             'password' => Hash::make('tansel123'),
-            'approved' => 0,
+            'approved' => 1,
             'role' => 'User',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
