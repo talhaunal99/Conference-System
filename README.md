@@ -9,6 +9,9 @@ Contributors
 # User Manual
 -Look User Manual.pdf file.
 
+# Statistics
+-Look stat -> index.html.
+
 # How to install
 - Install MySQL Server
 - Install MongoDB Server.
