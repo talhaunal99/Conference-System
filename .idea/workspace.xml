@@ -20,10 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac1d2605-980a-4417-8661-03cf141894ee" name="Default Changelist" comment="Added SQL script for creating ConferenceTag table.">
-      <change beforePath="$PROJECT_DIR$/.idea/Bil372_Odev2_1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Bil372_Odev2_1.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SQLScripts/create_conference_tag_table.sql" beforeDir="false" afterPath="$PROJECT_DIR$/SQLScripts/create_conference_tag_table.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/views/navigation-dropdown.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/views/navigation-dropdown.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vendor/composer/autoload_static.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,6 +157,12 @@
       <path value="$PROJECT_DIR$/src/vendor/sebastian/global-state" />
       <path value="$PROJECT_DIR$/src/vendor/league/flysystem" />
       <path value="$PROJECT_DIR$/src/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/src/vendor/jenssegers/mongodb" />
+      <path value="$PROJECT_DIR$/src/vendor/yajra/laravel-datatables-oracle" />
+      <path value="$PROJECT_DIR$/src/vendor/spatie/laravel-permission" />
+      <path value="$PROJECT_DIR$/src/vendor/mongodb/mongodb" />
+      <path value="$PROJECT_DIR$/src/vendor/jean85/pretty-package-versions" />
+      <path value="$PROJECT_DIR$/src/vendor/orangehill/iseed" />
     </include_path>
   </component>
   <component name="ProjectId" id="1kazG4frYU32O2TX80zlz0upTYB" />
@@ -171,6 +176,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -190,6 +196,12 @@
       <workItem from="1605977827287" duration="91000" />
       <workItem from="1605977920198" duration="4669000" />
       <workItem from="1606031035960" duration="625000" />
+      <workItem from="1606746100811" duration="713000" />
+      <workItem from="1606840377624" duration="3081000" />
+      <workItem from="1606930049957" duration="353000" />
+      <workItem from="1607034010689" duration="48000" />
+      <workItem from="1607163007186" duration="547000" />
+      <workItem from="1618989476414" duration="1724000" />
     </task>
     <task id="LOCAL-00001" summary="Added talha model class.">
       <created>1605954368173</created>
